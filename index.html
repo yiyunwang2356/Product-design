@@ -63,6 +63,7 @@
     .cards-section{padding:2.4rem 0 0}
     .cards-title{text-align:center;font-size:clamp(2.2rem,4vw,4.4rem);line-height:.95;letter-spacing:-.07em;max-width:10ch;margin:0 auto .8rem}
     .cards-link{text-align:center;color:var(--blue);font-size:var(--text-sm);margin-bottom:1.5rem}
+    
     .project-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -142,6 +143,15 @@
       font-size:var(--text-sm);
       font-weight:600;
     }
+
+    /* Video player style for project cards */
+    .project-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
     footer{padding:3rem 0;color:var(--muted);font-size:var(--text-sm);text-align:center}
     @media (max-width:980px){
       .stat-grid,.project-grid{grid-template-columns:1fr 1fr}
@@ -290,16 +300,16 @@
         </article>
 
         <article class="project-card">
-          <div class="project-visual">
-            <div style="width:100%;height:100%;border-radius:18px;background:linear-gradient(180deg,#eef2f7,#ffffff);padding:1rem;display:grid;gap:.7rem;">
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem"><div style="height:64px;border-radius:16px;background:#e3e8f2"></div><div style="height:64px;border-radius:16px;background:#eff2f8"></div><div style="height:64px;border-radius:16px;background:#e6ebf5"></div></div>
-              <div style="height:120px;border-radius:18px;background:#f3f5f9"></div>
-            </div>
+          <!-- Video Demo Replacement -->
+          <div class="project-visual" style="padding:0.4rem;">
+            <video class="project-video" autoplay loop muted playsinline>
+              <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fb84e7e7da4e06961752a45f857bdba19993a79a/assets/check-dashboard-video.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="project-label">Internal Tool / Prototype</div>
           <h4>Construction Inspection</h4>
           <p>A workflow web app for inspection records, issue tracking, and clearer field documentation.</p>
-          <!-- Updated relative path below -->
           <a href="./projects/construction-inspection.html" target="_blank" rel="noopener noreferrer">Open case study</a>
         </article>
 
