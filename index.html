@@ -3,333 +3,543 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yi Yun Wang — Digital Product Portfolio</title>
+  <title>Yi Yun Wang — Product Designer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f5f5f7;--surface:#ffffff;--surface-2:#fbfbfd;--surface-3:#f0f1f3;--text:#1d1d1f;--muted:#6e6e73;--line:rgba(0,0,0,.08);--blue:#0071e3;--blue-hover:#0077ed;
-      --radius-sm:10px;--radius-md:14px;--radius-lg:18px;--shadow:0 10px 30px rgba(0,0,0,.05);
-      --text-xs:.76rem;--text-sm:.92rem;--text-base:1rem;--text-lg:1.35rem;--text-xl:clamp(2.1rem,3vw,3.8rem);--text-hero:clamp(3rem,6vw,5.8rem);
-      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
-      --transition:240ms cubic-bezier(.16,1,.3,1);
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --surface-2: #fbfbfd;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(0,0,0,.08);
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow: 0 12px 36px rgba(0,0,0,.05);
+      --shadow-hero: 0 20px 48px rgba(0,0,0,.08);
+      --transition: 280ms cubic-bezier(.16,1,.3,1);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-    img,svg{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit}
-    .wrap{width:min(1180px,calc(100% - 2rem));margin:0 auto}
-    .topnav{position:sticky;top:0;z-index:20;background:rgba(245,245,247,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
-    .topnav-inner{height:48px;display:flex;align-items:center;justify-content:space-between;font-size:.78rem}
-    .topnav-links{display:flex;gap:1rem;color:var(--muted)}
-    .hero{padding:3.8rem 0 2.2rem}
-    .hero h1{font-size:var(--text-hero);line-height:.95;letter-spacing:-.08em;max-width:10ch;margin-bottom:1rem}
-    .hero p{font-size:var(--text-lg);color:var(--muted);max-width:34ch}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.82rem 1.1rem;border-radius:999px;font-size:var(--text-sm);font-weight:600;transition:all var(--transition)}
-    .btn.primary{background:var(--blue);color:#fff}.btn.primary:hover{background:var(--blue-hover)}
-    .btn.secondary{background:#fff;border:1px solid var(--line)}
-    .compare-bar{padding:0 0 2rem}
-    .compare-pill{display:inline-flex;align-items:center;gap:.55rem;padding:.72rem 1rem;border-radius:999px;border:1px solid #1d1d1f;font-size:var(--text-sm);background:#fff}
-    .section{padding:1.2rem 0 0}
-    .section-title{font-size:var(--text-sm);color:var(--muted);margin-bottom:.8rem}
-    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
-    .stat{background:var(--surface-2);border-radius:var(--radius-sm);padding:1.15rem;min-height:140px;display:grid;align-content:start;justify-items:start;border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow)}
-    .stat strong{font-size:2.9rem;line-height:.9;letter-spacing:-.08em;margin:.4rem 0 .2rem}
-    .stat .icon{font-size:1.8rem;line-height:1}
-    .stat p{font-size:.9rem;color:var(--muted);max-width:16ch}
-    .feature-large{margin-top:1.2rem;background:var(--surface);border-radius:var(--radius-lg);padding:1.2rem;display:grid;grid-template-columns:.9fr 1.1fr;gap:1rem;align-items:center;box-shadow:var(--shadow)}
-    .feature-copy{padding:1rem}
-    .eyebrow{font-size:.78rem;color:var(--muted);margin-bottom:.5rem}
-    .feature-copy h2{font-size:clamp(2rem,3.2vw,4rem);line-height:.95;letter-spacing:-.07em;max-width:10ch;margin-bottom:1rem}
-    .feature-copy p{color:var(--muted);max-width:30ch;margin-bottom:1rem}
-    .swatches{display:flex;gap:.55rem;margin-top:1rem}
-    .swatches span{width:16px;height:16px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.08)}
     
-    /* Device stage phone screen video styling */
-    .device-stage{background:linear-gradient(180deg,#f8f8fa,#eceef2);border-radius:30px;min-height:420px;display:grid;place-items:center;overflow:hidden;padding:1.5rem 0;}
-    .phone{width:250px;height:490px;background:#111214;border-radius:44px;padding:12px 10px;box-shadow:0 24px 30px rgba(0,0,0,.12)}
-    .phone-screen{height:100%;background:#000;border-radius:34px;position:relative;overflow:hidden}
-    .phone-screen::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:96px;height:22px;background:#111214;border-radius:999px;z-index:2}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    img, video, svg { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; }
     
-    /* Cropped video styling to hide recorded header/notch */
-    .phone-screen video{
-      width:100%;
-      height:128%;
-      object-fit:cover;
-      display:block;
-      margin-top:-15%;
-    }
+    /* Navigation */
+    .topnav { position: sticky; top: 0; z-index: 20; background: rgba(245,245,247,.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,.05); }
+    .topnav-inner { height: 60px; display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; }
+    .logo { width: 34px; height: 34px; border-radius: 8px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
+    .logo img { width: 100%; height: 100%; object-fit: cover; }
+    .topnav-links { display: flex; gap: 2rem; font-weight: 500; color: var(--muted); }
+    .topnav-links a { transition: color var(--transition); }
+    .topnav-links a:hover { color: var(--text); }
 
-    .tile-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
-    .tile{background:var(--surface);border-radius:var(--radius-md);padding:1.3rem;text-align:center;box-shadow:var(--shadow)}
-    .tile h3{font-size:clamp(2rem,3vw,3.3rem);line-height:.95;letter-spacing:-.06em;max-width:10ch;margin:0 auto .7rem}
-    .tile p{color:var(--muted);max-width:34ch;margin:0 auto .8rem}
-    .tile .mock{height:180px;border-radius:24px;background:linear-gradient(180deg,#f6f6f8,#eceef3);display:grid;place-items:center;margin-top:1rem}
-    .laptop{width:230px;height:110px;background:linear-gradient(180deg,#15161a,#3e434c);border-radius:10px 10px 18px 18px;position:relative}
-    .laptop::after{content:'';position:absolute;left:-18px;right:-18px;bottom:-12px;height:12px;border-radius:0 0 18px 18px;background:#c7c9cd}
-    .cards-section{padding:2.4rem 0 0}
-    .cards-title{text-align:center;font-size:clamp(2.2rem,4vw,4.4rem);line-height:.95;letter-spacing:-.07em;max-width:10ch;margin:0 auto .8rem}
-    .cards-link{text-align:center;color:var(--blue);font-size:var(--text-sm);margin-bottom:1.5rem}
+    /* Buttons & Badges */
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0.75rem 1.6rem; border-radius: 999px; font-size: 0.95rem; font-weight: 600; transition: all var(--transition); }
+    .btn.primary { background: var(--blue); color: #fff; }
+    .btn.primary:hover { background: var(--blue-hover); transform: translateY(-1px); }
+    .btn.secondary { background: #fff; border: 1px solid var(--line); color: var(--text); }
+    .btn.secondary:hover { background: var(--surface-2); border-color: rgba(0,0,0,.18); }
     
-    .project-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
-      align-items:stretch;
+    .tag-pill { display: inline-block; padding: 0.35rem 0.75rem; background: var(--bg); border-radius: 999px; font-size: 0.78rem; font-weight: 600; color: var(--muted); border: 1px solid rgba(0,0,0,.04); }
+    .eyebrow { font-size: 0.82rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+
+    /* Section Commons */
+    .section { padding: 4.5rem 0 2rem; }
+    .section-title { font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.8rem; line-height: 1.1; }
+    .section-desc { font-size: 1.1rem; color: var(--muted); max-width: 52ch; margin-bottom: 2.5rem; line-height: 1.5; }
+
+    /* =========================================================
+       1. ORIGINAL OPEN HERO SPACE (Direct canvas, no card)
+       ========================================================= */
+    .hero {
+      padding: 5rem 0 4.5rem;
+    }
+    .hero-meta-group {
+      margin-bottom: 2rem;
+    }
+    .hero-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .hero-role {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: -0.01em;
+    }
+    .hero-headline {
+      font-size: clamp(2.8rem, 6.2vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      color: var(--text);
+      max-width: 20ch;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      margin-bottom: 3rem;
+    }
+    .hero-subtext-quote {
+      border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 480px;
+      line-height: 1.45;
+      font-weight: 500;
     }
 
-    .project-card{
-      background:var(--surface);
-      border-radius:var(--radius-md);
-      padding:1rem;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:.85rem;
-      overflow:hidden;
-      height:100%;
-      transition:transform var(--transition), box-shadow var(--transition);
+    /* 2. Introduction Section */
+    .intro-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 3rem 3.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.03);
     }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .intro-text h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .intro-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .intro-disciplines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .discipline-box {
+      background: var(--bg);
+      padding: 1rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid rgba(0,0,0,.03);
+    }
+    .discipline-box span { color: var(--blue); font-weight: 700; }
 
-    .project-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 34px rgba(0,0,0,.08);
+    /* 3. Featured Work */
+    .work-showcase { display: flex; flex-direction: column; gap: 2rem; }
+    
+    /* Hero Project: BookingPie */
+    .hero-project-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-hero);
+      border: 1px solid rgba(0, 113, 227, 0.15);
     }
+    .hero-project-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+    }
+    .hero-project-media {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 3rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 440px;
+    }
+    .hero-project-content { padding: 3rem; }
+    .hero-project-content h3 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.3rem; }
+    .hero-project-subtitle { font-size: 1.15rem; font-weight: 600; color: var(--muted); margin-bottom: 1.2rem; }
 
-    .project-visual{
-      aspect-ratio:1.15/1;
-      border-radius:20px;
-      background:linear-gradient(180deg,#eff2f8,#ffffff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0.4rem;
-      overflow:hidden;
-      flex-shrink:0;
+    /* Secondary Projects Grid */
+    .secondary-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .sub-project-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.03);
+      display: flex;
+      flex-direction: column;
     }
+    .sub-project-media {
+      height: 200px;
+      background: linear-gradient(180deg, #f0f2f5, #e5e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .sub-project-content { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+    .sub-project-content h4 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.2rem; }
+    .sub-project-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-bottom: 1rem; }
+    .sub-project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
 
-    .project-visual.dark{
-      background:linear-gradient(180deg,#191b1f,#2d3139);
-      color:#fff;
-    }
+    /* Media Mockups */
+    .phone-mock-large { width: 220px; height: 440px; background: #111; border-radius: 36px; padding: 8px; box-shadow: 0 20px 40px rgba(0,0,0,.3); }
+    .phone-screen { height: 100%; background: #000; border-radius: 28px; overflow: hidden; }
+    .phone-screen video { width: 100%; height: 125%; object-fit: cover; margin-top: -12%; }
+    .dashboard-mock { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; background: #000; }
+    .dashboard-mock video { width: 100%; height: 100%; object-fit: cover; }
+    .concept-graphic { width: 100%; height: 100%; border-radius: 10px; background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; font-weight: 900; }
 
-    .project-label{
-      font-size:.72rem;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.08em;
+    /* 4. Spatial Design / Design Background */
+    .spatial-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.03);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
     }
+    .spatial-info h3 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.4rem; }
+    .spatial-info .pub-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; color: var(--blue); margin-bottom: 1rem; }
+    .spatial-info p { font-size: 1.05rem; color: var(--muted); line-height: 1.55; margin-bottom: 1.5rem; }
 
-    .project-card h4{
-      margin:0;
-      font-size:1.1rem;
-      line-height:1.2;
-      letter-spacing:-.04em;
-      overflow-wrap:anywhere;
-    }
+    /* 5. Process Section */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 1rem; }
+    .process-card { background: var(--surface); border-radius: var(--radius-md); padding: 1.8rem 1.4rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); }
+    .process-step { font-size: 0.78rem; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .process-card h4 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.8rem; }
+    .process-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .process-list li { font-size: 0.88rem; color: var(--muted); font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+    .process-list li::before { content: "•"; color: var(--blue); }
 
-    .project-card p{
-      margin:0;
-      font-size:.84rem;
-      color:var(--muted);
-      line-height:1.5;
-      overflow-wrap:anywhere;
-      flex:1;
-    }
+    /* 6. Contact Section */
+    .contact-card { background: var(--surface); border-radius: var(--radius-lg); padding: 4rem 2rem; text-align: center; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); margin-top: 2rem; margin-bottom: 3rem; }
+    .contact-card h2 { font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; letter-spacing: -0.05em; margin-bottom: 1rem; }
+    .contact-location { font-size: 0.95rem; font-weight: 600; color: var(--muted); margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
 
-    .project-card a{
-      margin-top:auto;
-      color:var(--blue);
-      font-size:var(--text-sm);
-      font-weight:600;
-    }
+    footer { padding: 2.5rem 0; color: var(--muted); font-size: 0.85rem; text-align: center; border-top: 1px solid var(--line); }
 
-    /* Video player styling */
-    .project-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
+    /* Responsive Breakdown */
+    @media (max-width: 960px) {
+      .intro-grid, .hero-project-grid, .spatial-card { grid-template-columns: 1fr; gap: 2rem; }
+      .secondary-projects-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
     }
-
-    footer{padding:3rem 0;color:var(--muted);font-size:var(--text-sm);text-align:center}
-    @media (max-width:980px){
-      .stat-grid,.project-grid{grid-template-columns:1fr 1fr}
-      .feature-large{grid-template-columns:1fr}
-      .tile-row{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      .wrap{width:min(100% - 1rem,1180px)}
-      .topnav-inner{height:auto;flex-direction:column;align-items:flex-start;gap:.5rem;padding:.6rem 0}
-      .topnav-links{flex-wrap:wrap}
-      .stat-grid,.project-grid{grid-template-columns:1fr}
-      .feature-copy{padding:0}
-      .phone{width:220px;height:430px}
-    }
-    .logo{
-      width: 40px;
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 0 3rem; }
+      .hero-headline { max-width: 100%; }
+      .intro-card, .spatial-card { padding: 2.5rem 1.8rem; }
+      .process-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Top Navigation -->
   <header class="topnav">
     <div class="wrap topnav-inner">
-      <a href="" class="logo"><img src="https://raw.githubusercontent.com/yiyunwang2356/Portfolio/38b652a3b5ca53c2ab0c146061ad3c3d056f5959/assets/logo/b%20logo-02.jpg">
+      <a href="#home" class="logo">
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Portfolio/38b652a3b5ca53c2ab0c146061ad3c3d056f5959/assets/logo/b%20logo-02.jpg" alt="Yi Yun Wang Logo">
       </a>
       <nav class="topnav-links">
-        <a href="#overview">Overview</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#projects">Projects</a>
-        <a href="mailto:dorawang2356@gmail.com">Contact</a>
+        <a href="#intro">About</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="hero" id="overview">
-      <h1>Conducting projects with various perspective.</h1>
-      <p>Designing with experience across spatial design, operational workflows, and service systems.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#projects">View projects</a>
-        <a class="btn secondary" href="mailto:dorawang2356@gmail.com">Get in touch</a>
+
+    <!-- 1. ORIGINAL HERO SECTION (Canvas Background) -->
+    <section class="hero" id="home">
+      <div class="hero-meta-group">
+        <h2 class="hero-name">Yi Yun Wang</h2>
+        <p class="hero-role">Product Designer</p>
+      </div>
+
+      <h1 class="hero-headline">Designing digital products through service thinking, operational systems, and human-centered experiences.</h1>
+
+      <div class="hero-cta">
+        <a href="#work" class="btn primary">View Work</a>
+      </div>
+
+      <div class="hero-subtext-quote">
+        From spatial design to digital products, I transform complex systems into intuitive experiences.
       </div>
     </section>
 
-    <div class="compare-bar">
-      <div class="compare-pill">Selected work (4 projects) ↗</div>
-    </div>
-
-    <section class="section" id="highlights">
-      <div class="section-title">This product portfolio highlights:</div>
-      <div class="stat-grid">
-        <article class="stat"><span class="icon">4</span><strong>4</strong><p>Selected digital product and system design projects.</p></article>
-        <article class="stat"><span class="icon">↗</span><strong>3</strong><p>Core lenses: service design, workflow UX, and product thinking.</p></article>
-        <article class="stat"><span class="icon">⌘</span><strong>2</strong><p>Real operational system cases with cross-touchpoint complexity.</p></article>
-        <article class="stat"><span class="icon">◻</span><strong>1</strong><p>Future-facing concept project to show vision and exploration.</p></article>
-      </div>
-
-      <!-- Featured Structure Section with BookingPie Video inside Phone -->
-      <div class="feature-large">
-        <div class="feature-copy">
-          <div class="eyebrow">Featured structure</div>
-          <h2>Use product logic to see each project more clearly.</h2>
-          <p>Each case now has its own dedicated page so you can show gallery images, interface screens, flow thinking, and more detailed explanation instead of compressing everything into one homepage.</p>
-          <a class="btn primary" href="https://landing.bookingpie.app" target="_blank" rel="noopener noreferrer">Visit BookingPie</a>
-          <div class="swatches"><span style="background:#8e8c88"></span><span style="background:#d4c8a9"></span><span style="background:#9aa8c7"></span><span style="background:#e8e8ea"></span></div>
-        </div>
-        <div class="device-stage">
-          <div class="phone">
-            <div class="phone-screen">
-              <video autoplay loop muted playsinline>
-                <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/2827fc74f7c47167560a100b26f71b9037254288/assets/bookingpie-nomaddhaus-video.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+    <!-- 2. INTRODUCTION SECTION -->
+    <section class="section" id="intro">
+      <div class="intro-card">
+        <div class="intro-grid">
+          <div class="intro-text">
+            <div class="eyebrow">Introduction</div>
+            <h3>Bridging physical space and digital ecosystems through holistic service design.</h3>
+            <p>With a background spanning spatial environments, service frameworks, and digital platforms, I focus on solving operational complexity with clarity and user-centered intention.</p>
+          </div>
+          <div class="intro-disciplines">
+            <div class="discipline-box"><span>01</span> Digital UX & Product Strategy</div>
+            <div class="discipline-box"><span>02</span> Service & Operational Systems</div>
+            <div class="discipline-box"><span>03</span> Spatial Experience & Workflows</div>
           </div>
         </div>
-      </div>
-
-      <div class="tile-row" style="margin-top:1rem;">
-        <article class="tile" style="text-align:left;">
-          <div class="eyebrow">Perspective</div>
-          <h3 style="max-width:11ch;margin:0 0 .8rem;">A practice shaped by different project lenses.</h3>
-          <p style="margin:0;max-width:38ch;">My perspective comes from working across spatial design, workflow thinking, and service systems. I look at projects not only as interfaces, but also as relationships between people, operations, touchpoints, and environments.</p>
-        </article>
-        <article class="tile" style="text-align:left;">
-          <div class="eyebrow">What I bring</div>
-          <h3 style="max-width:10ch;margin:0 0 .8rem;">More than screens alone.</h3>
-          <p style="margin:0;max-width:38ch;">This portfolio focuses on digital product outcomes, but the perspective behind the work also includes service structure, operational clarity, and sensitivity to how experiences extend beyond a single interface.</p>
-        </article>
-      </div>
-
-      <div class="tile-row">
-        <article class="tile">
-          <div class="eyebrow">System design</div>
-          <h3>Show the process behind the product.</h3>
-          <p>Each project page can include research notes, flow maps, key screens, and image galleries to explain how the system works.</p>
-          <div class="mock">
-            <div class="laptop"></div>
-          </div>
-        </article>
-        <article class="tile">
-          <div class="eyebrow">External pages</div>
-          <h3>Open every project as its own detailed case page.</h3>
-          <p>That makes the homepage cleaner and gives every project space for pictures, outcomes, reflections, and visual storytelling.</p>
-          <div class="mock">
-            <div style="width:210px;height:120px;border-radius:24px;background:linear-gradient(135deg,#f4d26a,#111);"></div>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section class="cards-section" id="projects">
-      <h2 class="cards-title">Which digital product is right for your portfolio?</h2>
-      <div class="cards-link">Open each case study ↗</div>
-      <div class="project-grid">
+    <!-- 3. FEATURED WORK SECTION -->
+    <section class="section" id="work">
+      <div class="eyebrow">Work</div>
+      <h2 class="section-title">Featured Work Preview</h2>
+      <p class="section-desc">Selected case studies across SaaS platforms, service ecosystems, and internal operational tools.</p>
 
-        <!-- BookingPie Card with Video -->
-        <article class="project-card">
-          <div class="project-visual">
-            <video class="project-video" autoplay loop muted playsinline>
-              <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/2827fc74f7c47167560a100b26f71b9037254288/assets/bookingpie-nomaddhaus-video.MP4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="project-label">Live Product / SaaS</div>
-          <h4>BookingPie</h4>
-          <p>Booking flow redesign for small service businesses moving away from manual LINE-based reservations.</p>
-          <a href="./bookingpie.html" target="_blank" rel="noopener noreferrer">Open case study</a>
-        </article>
+      <div class="work-showcase">
 
-        <!-- Nomadd Haus Card -->
-        <article class="project-card">
-          <div class="project-visual">
-            <div style="width:100%;height:100%;border-radius:18px;background:linear-gradient(180deg,#f5f3ef,#ffffff);padding:1rem;display:grid;gap:.7rem;">
-              <div style="height:20px;width:38%;border-radius:999px;background:#e4e7ef"></div>
-              <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:.7rem"><div style="height:110px;border-radius:18px;background:#eef2f8"></div><div style="height:110px;border-radius:18px;background:#f7f7fa"></div></div>
-              <div style="height:72px;border-radius:16px;background:#f1f3f8"></div>
+        <!-- 01 BookingPie -->
+        <article class="hero-project-card">
+          <div class="hero-project-grid">
+            <div class="hero-project-media">
+              <div class="phone-mock-large">
+                <div class="phone-screen">
+                  <video autoplay loop muted playsinline>
+                    <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/2827fc74f7c47167560a100b26f71b9037254288/assets/bookingpie-nomaddhaus-video.MP4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="hero-project-content">
+              <span class="tag-pill" style="margin-bottom: 0.8rem; color: var(--blue);">01 BookingPie</span>
+              <h3>BookingPie</h3>
+              <div class="hero-project-subtitle">SaaS Booking Platform</div>
+              <p style="color: var(--muted); margin-bottom: 1.5rem;">Redesigning reservation workflows for service businesses.</p>
+
+              <!-- IA Breakdown Pills -->
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem;">
+                <span class="tag-pill">Overview</span>
+                <span class="tag-pill">Problem</span>
+                <span class="tag-pill">Research</span>
+                <span class="tag-pill">User Flow</span>
+                <span class="tag-pill">UX Decisions</span>
+                <span class="tag-pill">Outcome</span>
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="./bookingpie.html" class="btn primary">View Case Study</a>
+                <a href="https://landing.bookingpie.app" target="_blank" rel="noopener" class="btn secondary">Live Product ↗</a>
+              </div>
             </div>
           </div>
-          <div class="project-label">Operational System</div>
-          <h4>Nomadd Haus</h4>
-          <p>A hybrid space management and community operation system connecting bookings, space use, and service logic.</p>
-          <a href="./nomadd-haus.html" target="_blank" rel="noopener noreferrer">Open case study</a>
         </article>
 
-        <!-- Construction Inspection Card with Video -->
-        <article class="project-card">
-          <div class="project-visual">
-            <video class="project-video" autoplay loop muted playsinline>
-              <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fb84e7e7da4e06961752a45f857bdba19993a79a/assets/check-dashboard-video.MP4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+        <!-- SECONDARY PROJECTS GRID -->
+        <div class="secondary-projects-grid">
+
+          <!-- 02 Nomadd Haus -->
+          <article class="sub-project-card">
+            <div class="sub-project-media">
+              <div style="width:100%; height:100%; border-radius:10px; background:linear-gradient(180deg,#ffffff,#f2f4f8); border:1px solid rgba(0,0,0,.06); padding:1rem; display:grid; gap:.5rem;">
+                <div style="height:14px; width:40%; border-radius:999px; background:#e0e4ee"></div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.5rem; height:70px;">
+                  <div style="border-radius:6px; background:#ebedf5"></div>
+                  <div style="border-radius:6px; background:#f5f6fa"></div>
+                </div>
+              </div>
+            </div>
+            <div class="sub-project-content">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">02 Nomadd Haus</span>
+              <h4>Nomadd Haus</h4>
+              <div class="sub-project-subtitle">Hybrid Space & Service System</div>
+              
+              <div class="sub-project-tags">
+                <span class="tag-pill">Business Context</span>
+                <span class="tag-pill">Service Ecosystem</span>
+                <span class="tag-pill">User Journey</span>
+                <span class="tag-pill">Operational Workflow</span>
+                <span class="tag-pill">Digital Touchpoints</span>
+              </div>
+
+              <div style="margin-top: auto; display: flex; gap: 1rem; align-items: center;">
+                <a href="./nomadd-haus.html" style="font-size: 0.9rem; font-weight: 700; color: var(--blue);">Case Study →</a>
+                <a href="https://nomaddhaus.com" target="_blank" rel="noopener" style="font-size: 0.88rem; color: var(--muted); text-decoration: underline;">Live Website ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 Construction Inspection -->
+          <article class="sub-project-card">
+            <div class="sub-project-media" style="background: #111;">
+              <div class="dashboard-mock">
+                <video autoplay loop muted playsinline>
+                  <source src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fb84e7e7da4e06961752a45f857bdba19993a79a/assets/check-dashboard-video.MP4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="sub-project-content">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">03 Inspection Tool</span>
+              <h4>Construction Inspection</h4>
+              <div class="sub-project-subtitle">Field Problem & Dashboard App</div>
+              
+              <div class="sub-project-tags">
+                <span class="tag-pill">Field Problem</span>
+                <span class="tag-pill">Workflow Analysis</span>
+                <span class="tag-pill">Dashboard Design</span>
+                <span class="tag-pill">Prototype</span>
+              </div>
+
+              <div style="margin-top: auto;">
+                <a href="./projects/construction-inspection.html" style="font-size: 0.9rem; font-weight: 700; color: var(--blue);">Case Study →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 Re:Craft -->
+          <article class="sub-project-card">
+            <div class="sub-project-media">
+              <div class="concept-graphic">Re:</div>
+            </div>
+            <div class="sub-project-content">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">04 Circular Concept</span>
+              <h4>Re:Craft</h4>
+              <div class="sub-project-subtitle">Material & Product-Service System</div>
+              
+              <div class="sub-project-tags">
+                <span class="tag-pill">Concept Background</span>
+                <span class="tag-pill">Material System</span>
+                <span class="tag-pill">Circular Design</span>
+                <span class="tag-pill">Product-Service</span>
+              </div>
+
+              <div style="margin-top: auto;">
+                <a href="./recraft.html" style="font-size: 0.9rem; font-weight: 700; color: var(--blue);">View Concept →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SPATIAL DESIGN / DESIGN BACKGROUND SECTION -->
+    <section class="section" id="spatial">
+      <div class="eyebrow">Design Background</div>
+      <h2 class="section-title">Spatial Experience Design</h2>
+      
+      <div class="spatial-card">
+        <div class="spatial-info">
+          <h3>Cloister Studio</h3>
+          <a class="pub-tag" href="https://leibal.com/interiors/cloister-studio/" target="_blank" rel="noopener">Featured on Leibal ↗</a>
+          <p>Designing a flexible creative environment through spatial systems and user workflows.</p>
+          
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;">
+            <span class="tag-pill">Spatial Experience Design</span>
+            <span class="tag-pill">User Behavior</span>
+            <span class="tag-pill">Space Planning</span>
+            <span class="tag-pill">Material & Atmosphere</span>
+            <span class="tag-pill">Reflection</span>
           </div>
-          <div class="project-label">Internal Tool / Prototype</div>
-          <h4>Construction Inspection</h4>
-          <p>A workflow web app for inspection records, issue tracking, and clearer field documentation.</p>
-          <a href="./projects/construction-inspection.html" target="_blank" rel="noopener noreferrer">Open case study</a>
-        </article>
 
-        <!-- Re:Craft Card -->
-        <article class="project-card">
-          <div class="project-visual">
-            <div style="width:100%;height:100%;border-radius:18px;background:linear-gradient(180deg,#f6f3ee,#ffffff);display:grid;place-items:center;font-size:3rem;font-weight:800;letter-spacing:-.06em;color:#1d1d1f;">Re:</div>
-          </div>
-          <div class="project-label">Concept Project</div>
-          <h4>Re:Craft</h4>
-          <p>A circular concept system exploring future-facing product logic, material loops, and speculative service possibilities.</p>
-          <a href="./recraft.html" target="_blank" rel="noopener noreferrer">Open case study</a>
-        </article>
+          <a href="https://leibal.com/interiors/cloister-studio/" target="_blank" rel="noopener" class="btn secondary">Explore Interior Feature ↗</a>
+        </div>
+        <div>
+          <img src="https://images.squarespace-cdn.com/content/v1/528a3bdde4b008620247076f/1612443048281-W1K5V0U4Z1T80E4I4N7A/Leibal_Cloister_Studio_01.jpg" alt="Cloister Studio Spatial Design" style="border-radius: var(--radius-md); box-shadow: var(--shadow); object-fit: cover; width: 100%; height: 280px;">
+        </div>
+      </div>
+    </section>
 
+    <!-- 5. PROCESS SECTION -->
+    <section class="section" id="process">
+      <div class="eyebrow">Process</div>
+      <h2 class="section-title">Design Framework</h2>
+      <p class="section-desc">A structured, iterative method for transforming ambiguous challenges into intuitive product experiences.</p>
+
+      <div class="process-grid">
+        <!-- Discover -->
+        <div class="process-card">
+          <div class="process-step">Step 01</div>
+          <h4>Discover</h4>
+          <ul class="process-list">
+            <li>Research</li>
+            <li>Observation</li>
+            <li>User Understanding</li>
+          </ul>
+        </div>
+
+        <!-- Define -->
+        <div class="process-card">
+          <div class="process-step">Step 02</div>
+          <h4>Define</h4>
+          <ul class="process-list">
+            <li>Problem Framing</li>
+            <li>Journey Mapping</li>
+            <li>System Thinking</li>
+          </ul>
+        </div>
+
+        <!-- Develop -->
+        <div class="process-card">
+          <div class="process-step">Step 03</div>
+          <h4>Develop</h4>
+          <ul class="process-list">
+            <li>Ideation</li>
+            <li>Prototyping</li>
+            <li>Testing</li>
+          </ul>
+        </div>
+
+        <!-- Deliver -->
+        <div class="process-card">
+          <div class="process-step">Step 04</div>
+          <h4>Deliver</h4>
+          <ul class="process-list">
+            <li>Implementation</li>
+            <li>Collaboration</li>
+            <li>Reflection</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="contact-card">
+        <div class="eyebrow" style="margin-bottom: 0.8rem;">Contact</div>
+        <h2>Let's connect and build together.</h2>
+        <div class="contact-location">Location: Taipei / Delft</div>
+        
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:dorawang2356@gmail.com">Email Me</a>
+          <a class="btn secondary" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn secondary" href="#" target="_blank">Resume</a>
+        </div>
       </div>
     </section>
 
     <footer>
-      Digital product portfolio homepage with dedicated case pages for detailed images and project storytelling.
+      Yi Yun Wang — Digital Product & Service Design
     </footer>
+
   </main>
+
 </body>
 </html>
