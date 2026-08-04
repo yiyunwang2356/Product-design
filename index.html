@@ -161,11 +161,11 @@
     }
     .hero-project-media {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      padding: 3rem 2rem;
+      padding: 2.5rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 440px;
+      min-height: 480px;
     }
     .hero-project-content { padding: 3rem; }
     .hero-project-content h3 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.3rem; }
@@ -183,24 +183,62 @@
       flex-direction: column;
     }
     .sub-project-media {
-      height: 200px;
-      background: linear-gradient(180deg, #f0f2f5, #e5e8f0);
+      height: 220px;
+      background: #0f172a;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 0.75rem;
     }
     .sub-project-content { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
     .sub-project-content h4 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.2rem; }
     .sub-project-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-bottom: 1rem; }
     .sub-project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
 
-    /* Media Mockups */
-    .phone-mock-large { width: 220px; height: 440px; background: #111; border-radius: 36px; padding: 8px; box-shadow: 0 20px 40px rgba(0,0,0,.3); }
-    .phone-screen { height: 100%; background: #000; border-radius: 28px; overflow: hidden; }
-    .phone-screen video { width: 100%; height: 125%; object-fit: cover; margin-top: -12%; }
-    .dashboard-mock { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; background: #000; }
-    .dashboard-mock video { width: 100%; height: 100%; object-fit: cover; }
+    /* FIXED MEDIA MOCKUPS (NO CROPPING) */
+    .phone-mock-large { 
+      width: 230px; 
+      height: 460px; 
+      background: #111; 
+      border-radius: 38px; 
+      padding: 8px; 
+      box-shadow: 0 20px 40px rgba(0,0,0,.35); 
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .phone-screen { 
+      height: 100%; 
+      width: 100%;
+      background: #000; 
+      border-radius: 30px; 
+      overflow: hidden; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .phone-screen video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+      border-radius: 28px;
+    }
+    
+    .dashboard-mock { 
+      width: 100%; 
+      height: 100%; 
+      border-radius: 10px; 
+      overflow: hidden; 
+      background: #000; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .dashboard-mock video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+    }
+
     .concept-graphic { width: 100%; height: 100%; border-radius: 10px; background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; font-weight: 900; }
 
     /* 4. Spatial Design / Design Background */
@@ -354,10 +392,10 @@
 
           <!-- 02 Nomadd Haus -->
           <article class="sub-project-card">
-            <div class="sub-project-media">
-              <div style="width:100%; height:100%; border-radius:10px; background:linear-gradient(180deg,#ffffff,#f2f4f8); border:1px solid rgba(0,0,0,.06); padding:1rem; display:grid; gap:.5rem;">
+            <div class="sub-project-media" style="background: linear-gradient(180deg,#f0f2f5,#e5e8f0);">
+              <div style="width:100%; height:100%; border-radius:10px; background:#ffffff; border:1px solid rgba(0,0,0,.06); padding:1rem; display:grid; gap:.5rem;">
                 <div style="height:14px; width:40%; border-radius:999px; background:#e0e4ee"></div>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.5rem; height:70px;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.5rem; height:80px;">
                   <div style="border-radius:6px; background:#ebedf5"></div>
                   <div style="border-radius:6px; background:#f5f6fa"></div>
                 </div>
@@ -385,7 +423,7 @@
 
           <!-- 03 Construction Inspection -->
           <article class="sub-project-card">
-            <div class="sub-project-media" style="background: #111;">
+            <div class="sub-project-media">
               <div class="dashboard-mock">
                 <video autoplay loop muted playsinline>
                   <source src="assets/check-dashboard-video.mp4" type="video/mp4">
@@ -412,7 +450,7 @@
 
           <!-- 04 Re:Craft -->
           <article class="sub-project-card">
-            <div class="sub-project-media">
+            <div class="sub-project-media" style="background: linear-gradient(180deg,#f0f2f5,#e5e8f0);">
               <div class="concept-graphic">Re:</div>
             </div>
             <div class="sub-project-content">
