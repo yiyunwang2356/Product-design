@@ -9,69 +9,461 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f5f7;
-      --surface: #ffffff;
-      --surface-subtle: #fbfbfd;
-      --surface-card: #f8f9fb;
+      --bg: #ffffff;
+      --surface-subtle: #f8f9fb;
       --text: #1d1d1f;
       --muted: #6e6e73;
-      --line: rgba(0,0,0,.08);
+      --line: #e5e5ea;
+      --line-dashed: #d1d1d6;
       --blue: #0071e3;
       --blue-hover: #0077ed;
+      --risk-red: #ff3b30;
+      --success-green: #34c759;
       --radius-sm: 12px;
       --radius-md: 20px;
       --radius-lg: 32px;
-      --shadow: 0 10px 30px rgba(0,0,0,.05);
       --shadow-hero: 0 20px 48px rgba(0,0,0,.08);
       --transition: 280ms cubic-bezier(.16,1,.3,1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      line-height: 1.5; 
+      -webkit-font-smoothing: antialiased; 
+    }
     img, video { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
 
-    .wrap { width: min(1000px, calc(100% - 2.5rem)); margin: 0 auto; padding: 2rem 0 5rem; }
+    .wrap { 
+      width: min(1060px, calc(100% - 3rem)); 
+      margin: 0 auto; 
+      padding: 3rem 0 6rem; 
+    }
 
-    .back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.92rem; font-weight: 600; color: var(--blue); margin-bottom: 2rem; transition: color var(--transition); }
-    .back:hover { color: var(--blue-hover); }
+    .back { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.4rem; 
+      font-size: 0.92rem; 
+      font-weight: 600; 
+      color: var(--blue); 
+      margin-bottom: 2.5rem; 
+      transition: opacity 0.2s; 
+    }
+    .back:hover { opacity: 0.8; }
 
-    /* Hero Section */
-    .hero { background: var(--surface); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); }
-    .eyebrow { font-size: 0.82rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
-    h1 { font-size: clamp(2.8rem, 5.5vw, 4.5rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.06em; margin-bottom: 1.2rem; }
-    .hero-desc { font-size: 1.2rem; color: var(--muted); max-width: 58ch; line-height: 1.55; margin-bottom: 3rem; }
+    /* SECTION LAYOUTS - Clean & Unboxed */
+    .section-clean {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-clean:last-child {
+      border-bottom: none;
+    }
+
+    .eyebrow { 
+      font-size: 0.82rem; 
+      font-weight: 700; 
+      color: var(--blue); 
+      text-transform: uppercase; 
+      letter-spacing: 0.08em; 
+      margin-bottom: 0.8rem; 
+    }
+
+    h1 { 
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem); 
+      font-weight: 800; 
+      line-height: 1.02; 
+      letter-spacing: -0.06em; 
+      margin-bottom: 1.2rem; 
+    }
+
+    .hero-desc { 
+      font-size: 1.2rem; 
+      color: var(--muted); 
+      max-width: 58ch; 
+      line-height: 1.55; 
+      margin-bottom: 3rem; 
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 65ch;
+      line-height: 1.5;
+    }
 
     /* Meta Details Grid */
-    .meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-    .meta-item strong { display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.4rem; }
-    .meta-item p { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.45; }
-
-    /* Main Desktop Showcase (Cropped Top Menu) */
-    .hero-media-wrapper { background: #ffffff; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-hero); border: 1px solid rgba(0,0,0,.06); }
-    .hero-media-crop { overflow: hidden; margin-top: -6.8%; } /* Clips out the top navigation header */
-    .hero-media-crop img { width: 100%; height: auto; display: block; }
-
-    /* Content Sections */
-    .section { background: var(--surface); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow); margin-top: 2rem; border: 1px solid rgba(0,0,0,.03); }
-    .section-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 2rem; }
-
-    /* Process & Content Grids */
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-    .panel { background: var(--surface-card); border-radius: var(--radius-md); padding: 1.8rem; border: 1px solid rgba(0,0,0,.02); }
-    .panel strong { display: block; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem; color: var(--text); }
-    .panel p { font-size: 0.98rem; color: var(--muted); line-height: 1.55; }
-
-    /* Phone Gallery Cards */
-    .phone-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .phone-card { background: var(--surface-card); border-radius: var(--radius-md); padding: 2rem; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(0,0,0,.03); }
-    .phone-card img { width: 100%; max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 16px 36px rgba(0,0,0,.08); }
-
-    @media (max-width: 860px) {
-      .hero, .section { padding: 2.2rem 1.8rem; }
-      .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
-      .grid, .phone-gallery { grid-template-columns: 1fr; }
+    .meta-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 1.5rem; 
+      margin-bottom: 3.5rem; 
+      padding-top: 2rem; 
+      border-top: 1px solid var(--line); 
     }
+    .meta-item strong { 
+      display: block; 
+      font-size: 0.82rem; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 0.06em; 
+      color: var(--muted); 
+      margin-bottom: 0.4rem; 
+    }
+    .meta-item p { 
+      font-size: 0.95rem; 
+      font-weight: 600; 
+      color: var(--text); 
+      line-height: 1.45; 
+    }
+
+    /* Main Desktop Showcase (Cropped Header) */
+    .hero-media-wrapper { 
+      background: var(--surface-subtle); 
+      border-radius: var(--radius-md); 
+      overflow: hidden; 
+      box-shadow: var(--shadow-hero); 
+      border: 1px solid rgba(0,0,0,.06); 
+    }
+    .hero-media-crop { 
+      overflow: hidden; 
+      margin-top: -6.8%; 
+    }
+    .hero-media-crop img { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+    }
+
+    /* USER JOURNEY TIMELINE */
+    .timeline-wrapper {
+      position: relative;
+      width: 100%;
+      padding: 1.5rem 0;
+    }
+
+    .timeline-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      border-top: 1px dashed var(--line-dashed);
+      z-index: 1;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tl-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .tl-step.row-top {
+      grid-row: 1;
+      margin-bottom: 3.5rem;
+    }
+
+    .tl-step.row-bottom {
+      grid-row: 2;
+      margin-top: 3.5rem;
+    }
+
+    .step-1 { grid-column: 1; }
+    .step-2 { grid-column: 2; }
+    .step-3 { grid-column: 3; }
+    .step-4 { grid-column: 4; }
+    .step-5 { grid-column: 5; }
+
+    .tl-icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111111;
+    }
+
+    .tl-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke-width: 1.6;
+      stroke: currentColor;
+    }
+
+    .tl-icon.brand-icon {
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.04em;
+      color: #000;
+    }
+
+    .tl-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .dot-red {
+      width: 10px;
+      height: 10px;
+      background-color: var(--risk-red);
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .dot-green {
+      width: 10px;
+      height: 10px;
+      background-color: var(--success-green);
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .tl-desc {
+      font-size: 0.88rem;
+      color: #333336;
+      line-height: 1.45;
+    }
+
+    .tl-desc strong {
+      font-weight: 600;
+    }
+
+    /* FIELD RESEARCH & INSIGHTS */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .insight-card {
+      padding: 1.5rem 0;
+      border-top: 2px solid var(--text);
+    }
+
+    .insight-card strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .insight-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* DESIGN SOLUTIONS GRID */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .solution-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--surface-subtle);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,.03);
+    }
+
+    .solution-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .solution-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* TO-BE SOLUTION (3 STEPS VISUAL FLOW WITH IPHONE FRAMES) */
+    .tobe-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tobe-step-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tobe-step-header {
+      margin-bottom: 1.2rem;
+    }
+
+    .tobe-step-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+
+    .tobe-step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tobe-img-wrap {
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    /* CSS iPhone Frame (Scaled down to 0.9x: 250px -> 225px) */
+    .iphone-frame {
+      position: relative;
+      width: 100%;
+      max-width: 225px;
+      border: 9px solid #1c1c1e;
+      border-radius: 36px;
+      background: #000;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+      overflow: hidden;
+    }
+
+    .iphone-frame::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 12px;
+      background: #1c1c1e;
+      border-radius: 9px;
+      z-index: 10;
+    }
+
+    .iphone-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 27px;
+    }
+
+    /* CLEAN MOBILE INTERFACE (SCALED UP BY 1.25X) */
+    .phone-gallery-clean { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 2.5rem; 
+      justify-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .phone-img-clean {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    /* Process Grid */
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 1.5rem; 
+      margin-top: 2rem;
+    }
+    .panel { 
+      background: var(--surface-subtle); 
+      border-radius: var(--radius-md); 
+      padding: 2rem; 
+      border: 1px solid rgba(0,0,0,.04); 
+    }
+    .panel strong { 
+      display: block; 
+      font-size: 1.1rem; 
+      font-weight: 700; 
+      letter-spacing: -0.02em; 
+      margin-bottom: 0.5rem; 
+      color: var(--text); 
+    }
+    .panel p { 
+      font-size: 0.95rem; 
+      color: var(--muted); 
+      line-height: 1.55; 
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 860px) {
+      .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+      .grid, .insights-grid, .solution-grid, .tobe-steps-grid, .phone-gallery-clean { 
+        grid-template-columns: 1fr; 
+      }
+
+      .timeline-wrapper::before { display: none; }
+      .timeline-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+      .tl-step {
+        margin: 0 !important;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px dashed var(--line);
+      }
+      .tl-step:last-child { border-bottom: none; }
+    }
+
     @media (max-width: 520px) {
       .meta-grid { grid-template-columns: 1fr; }
     }
@@ -83,7 +475,7 @@
     <a class="back" href="../index.html">← Back to homepage</a>
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="section-clean">
       <div class="eyebrow">SaaS Booking Management Platform</div>
       <h1>BookingPie</h1>
       <p class="hero-desc">
@@ -110,29 +502,342 @@
         </div>
       </div>
 
-      <!-- MAIN HERO IMAGE (Cropped Top Menu) -->
+      <!-- MAIN HERO IMAGE -->
       <div class="hero-media-wrapper">
         <div class="hero-media-crop">
-          <img src="assets/bookingpie-home.png" alt="BookingPie Management Interface Preview">
+          <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/b7b47da82cf7f0a2ad3534ec4ca33d499e255a6d/assets/bookingpie-home.png" alt="BookingPie Management Interface Preview">
+        </div>
+      </div>
+    </section>
+
+    <!-- AS-IS USER JOURNEY SECTION -->
+    <section class="section-clean">
+      <h2 class="section-title">User journey</h2>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-grid">
+
+          <!-- STEP 1: Inquiry -->
+          <div class="tl-step row-top step-1">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <circle cx="9" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="15" cy="12" r="0.8" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <p class="tl-desc">
+                <strong>Inquiry:</strong> Customer sends a LINE message: "Is Saturday free?"
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 2: Lookup -->
+          <div class="tl-step row-bottom step-2">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="17" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="5"/>
+                <line x1="8" y1="2" x2="8" y2="5"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="7" y1="13" x2="9" y2="13"/>
+                <line x1="11" y1="13" x2="13" y2="13"/>
+                <line x1="15" y1="13" x2="17" y2="13"/>
+                <line x1="7" y1="17" x2="9" y2="17"/>
+                <line x1="11" y1="17" x2="13" y2="17"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-red"></span>
+                [High Drop-off Risk]
+              </div>
+              <p class="tl-desc">
+                <strong>Lookup:</strong> Merchant checks a paper notebook or personal phone calendar.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 3: Response -->
+          <div class="tl-step row-bottom step-3">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <circle cx="9" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="15" cy="12" r="0.8" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-red"></span>
+                [High Operational Overhead]
+              </div>
+              <p class="tl-desc">
+                <strong>Response:</strong> Merchant replies: "Only 2 PM is available."
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 4: Delay -->
+          <div class="tl-step row-top step-4">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <circle cx="9" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+                <circle cx="15" cy="12" r="0.8" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-red"></span>
+                [Data Fragmentation]
+              </div>
+              <p class="tl-desc">
+                <strong>Delay:</strong> Customer replies 30 minutes later: "Okay, I'll take it."
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 5: Risk -->
+          <div class="tl-step row-bottom step-5">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 11.5c1.5-2 3.5 2 5 0s1.5-2.5 3-.5-1 4.5-3 3-3-2.5-1-4.5"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-red"></span>
+                [Zero Centralized Visibility]
+              </div>
+              <p class="tl-desc">
+                <strong>Risk:</strong> By then, the spot might be gone, or the merchant forgets to write it down.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FIELD RESEARCH & INSIGHTS -->
+    <section class="section-clean">
+      <h2 class="section-title">Field Research & Insights</h2>
+      <div class="insights-grid">
+        <div class="insight-card">
+          <strong>Fragmented User Flow</strong>
+          <p>Customers must switch between the booking page and LINE manually to verify availability and confirm slot choices.</p>
+        </div>
+        <div class="insight-card">
+          <strong>High Operational Cost</strong>
+          <p>Business owners spend significant time and energy back-and-forth confirming individual reservations manually.</p>
+        </div>
+        <div class="insight-card">
+          <strong>Conversion Leakage</strong>
+          <p>There is a high risk of customer drop-off during the manual handoff moment while waiting for replies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN SOLUTION -->
+    <section class="section-clean">
+      <h2 class="section-title">Design Solution</h2>
+      <div class="solution-grid">
+        <div class="solution-item">
+          <span class="solution-dot"></span>
+          <div>
+            <h3>Unified Booking Journey</h3>
+          </div>
+        </div>
+        <div class="solution-item">
+          <span class="solution-dot"></span>
+          <div>
+            <h3>Centralized Reservation Information</h3>
+          </div>
+        </div>
+        <div class="solution-item">
+          <span class="solution-dot"></span>
+          <div>
+            <h3>Automated Confirmation Workflow</h3>
+          </div>
+        </div>
+        <div class="solution-item">
+          <span class="solution-dot"></span>
+          <div>
+            <h3>Calendar Integration</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE "TO-BE" FLOW: MESSY WORLD > STRUCTURED SYSTEM -->
+    <section class="section-clean">
+      <h2 class="section-title">The "To-Be" Flow</h2>
+      <p class="section-subtitle">messy world → structured system</p>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-grid">
+
+          <!-- STEP 01: Customer Selection -->
+          <div class="tl-step row-top step-1">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <p class="tl-desc">
+                <strong>Customer:</strong> Selects a time slot on the BookingPie web interface.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 02: Instant Conversion -->
+          <div class="tl-step row-bottom step-2">
+            <div class="tl-icon brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 3"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-green"></span>
+                [Instant Conversion]
+              </div>
+              <p class="tl-desc">
+                <strong>System:</strong> Instantly checks real-time availability.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 03: Single Source of Truth -->
+          <div class="tl-step row-top step-3">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-green"></span>
+                [Single Source of Truth]
+              </div>
+              <p class="tl-desc">
+                <strong>Automation:</strong> Automatically creates a Calendar event and sends an Email confirmation.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 04: Line API Automation -->
+          <div class="tl-step row-top step-4">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-green"></span>
+                [Line API Automation]
+              </div>
+              <p class="tl-desc">
+                Automatically send reminder to customers.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 05: Zero-Touch Automation -->
+          <div class="tl-step row-bottom step-5">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="risk-badge">
+                <span class="dot-green"></span>
+                [Zero-Touch Automation]
+              </div>
+              <p class="tl-desc">
+                <strong>Merchant:</strong> Simply opens the Dashboard to see a clean, synchronized schedule.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE "TO-BE" SOLUTION WITH IPHONE FRAMES (SCALED TO 0.9X) -->
+    <section class="section-clean">
+      <h2 class="section-title">The "To-Be" Solution</h2>
+      <p class="section-subtitle">Validating the Core Booking Logic through Seamless Google Calendar Integration and LINE API.</p>
+      
+      <div class="tobe-steps-grid">
+        <!-- Step 1 -->
+        <div class="tobe-step-card">
+          <div class="tobe-step-header">
+            <div class="tobe-step-num">Step 01</div>
+            <div class="tobe-step-title">Category</div>
+          </div>
+          <div class="tobe-img-wrap">
+            <div class="iphone-frame">
+              <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/741614f9271c056b3a73deb3b6bfafe7669a7e79/assets/bookingpie-step1.png" alt="BookingPie Step 1 - Category Selection">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="tobe-step-card">
+          <div class="tobe-step-header">
+            <div class="tobe-step-num">Step 02</div>
+            <div class="tobe-step-title">Room / Time / Personal Info</div>
+          </div>
+          <div class="tobe-img-wrap">
+            <div class="iphone-frame">
+              <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/741614f9271c056b3a73deb3b6bfafe7669a7e79/assets/bookingpie-step2.png" alt="BookingPie Step 2 - Details and Selection">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="tobe-step-card">
+          <div class="tobe-step-header">
+            <div class="tobe-step-num">Step 03</div>
+            <div class="tobe-step-title">Confirmation</div>
+          </div>
+          <div class="tobe-img-wrap">
+            <div class="iphone-frame">
+              <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/741614f9271c056b3a73deb3b6bfafe7669a7e79/assets/bookingpie-step3.png" alt="BookingPie Step 3 - Confirmation">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- MOBILE INTERFACE SECTION -->
-    <section class="section">
+    <section class="section-clean">
       <h2 class="section-title">Mobile Interface</h2>
-      <div class="phone-gallery">
-        <div class="phone-card">
-          <img src="assets/bookingpie-phone01.png" alt="BookingPie Mobile View 01">
-        </div>
-        <div class="phone-card">
-          <img src="assets/bookingpie-phone02.png" alt="BookingPie Mobile View 02">
-        </div>
+      <div class="phone-gallery-clean">
+        <img class="phone-img-clean" src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/main/assets/bookingpie-phone01.png" alt="BookingPie Mobile Screen 01">
+        <img class="phone-img-clean" src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/b7b47da82cf7f0a2ad3534ec4ca33d499e255a6d/assets/bookingpie-phone02.png" alt="BookingPie Mobile Screen 02">
       </div>
     </section>
 
     <!-- PROCESS SECTION -->
-    <section class="section">
+    <section class="section-clean">
       <h2 class="section-title">Design & Architecture Process</h2>
       <div class="grid">
         <div class="panel">
