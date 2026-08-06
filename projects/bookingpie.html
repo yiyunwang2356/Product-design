@@ -47,9 +47,10 @@
     .meta-item strong { display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.4rem; }
     .meta-item p { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.45; }
 
-    /* Showcase Image Container */
-    .hero-media-wrapper { background: #0f172a; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-hero); border: 1px solid rgba(0,0,0,.06); }
-    .hero-media-wrapper img { width: 100%; height: auto; object-fit: cover; }
+    /* Main Desktop Showcase (Cropped Top Menu) */
+    .hero-media-wrapper { background: #ffffff; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-hero); border: 1px solid rgba(0,0,0,.06); }
+    .hero-media-crop { overflow: hidden; margin-top: -6.8%; } /* Clips out the top navigation header */
+    .hero-media-crop img { width: 100%; height: auto; display: block; }
 
     /* Content Sections */
     .section { background: var(--surface); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow); margin-top: 2rem; border: 1px solid rgba(0,0,0,.03); }
@@ -61,14 +62,15 @@
     .panel strong { display: block; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem; color: var(--text); }
     .panel p { font-size: 0.98rem; color: var(--muted); line-height: 1.55; }
 
-    /* Project Gallery */
-    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .mock { min-height: 260px; border-radius: var(--radius-md); background: linear-gradient(180deg, #eef3fb 0%, #ffffff 100%); border: 1px solid rgba(0,0,0,.04); }
+    /* Phone Gallery Cards */
+    .phone-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .phone-card { background: var(--surface-card); border-radius: var(--radius-md); padding: 2rem; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(0,0,0,.03); }
+    .phone-card img { width: 100%; max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 16px 36px rgba(0,0,0,.08); }
 
     @media (max-width: 860px) {
       .hero, .section { padding: 2.2rem 1.8rem; }
       .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
-      .grid, .gallery { grid-template-columns: 1fr; }
+      .grid, .phone-gallery { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
       .meta-grid { grid-template-columns: 1fr; }
@@ -108,9 +110,24 @@
         </div>
       </div>
 
-      <!-- MAIN HERO IMAGE -->
+      <!-- MAIN HERO IMAGE (Cropped Top Menu) -->
       <div class="hero-media-wrapper">
-        <img src="assets/bookingpie-home.png" alt="BookingPie Management Interface Preview" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';">
+        <div class="hero-media-crop">
+          <img src="assets/bookingpie-home.png" alt="BookingPie Management Interface Preview">
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE INTERFACE SECTION -->
+    <section class="section">
+      <h2 class="section-title">Mobile Interface</h2>
+      <div class="phone-gallery">
+        <div class="phone-card">
+          <img src="assets/bookingpie-phone01.png" alt="BookingPie Mobile View 01">
+        </div>
+        <div class="phone-card">
+          <img src="assets/bookingpie-phone02.png" alt="BookingPie Mobile View 02">
+        </div>
       </div>
     </section>
 
@@ -137,16 +154,6 @@
       </div>
     </section>
 
-    <!-- GALLERY SECTION -->
-    <section class="section">
-      <h2 class="section-title">Project Gallery</h2>
-      <div class="gallery">
-        <div class="mock"></div>
-        <div class="mock"></div>
-        <div class="mock"></div>
-        <div class="mock"></div>
-      </div>
-    </section>
   </div>
 
 </body>
