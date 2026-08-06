@@ -56,204 +56,61 @@
     .section-title { font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.8rem; line-height: 1.1; }
     .section-desc { font-size: 1.1rem; color: var(--muted); max-width: 52ch; margin-bottom: 2.5rem; line-height: 1.5; }
 
-    /* 1. Hero Section (Open Canvas) */
-    .hero {
-      padding: 5rem 0 4.5rem;
-    }
-    .hero-meta-group {
-      margin-bottom: 2rem;
-    }
-    .hero-name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-    .hero-role {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--blue);
-      letter-spacing: -0.01em;
-    }
-    .hero-headline {
-      font-size: clamp(2.8rem, 6.2vw, 5rem);
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      line-height: 1.05;
-      color: var(--text);
-      max-width: 20ch;
-      margin-bottom: 2.5rem;
-    }
-    .hero-cta {
-      margin-bottom: 3rem;
-    }
-    .hero-subtext-quote {
-      border-left: 3px solid var(--blue);
-      padding-left: 1.25rem;
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 480px;
-      line-height: 1.45;
-      font-weight: 500;
-    }
+    /* 1. Hero Section */
+    .hero { padding: 5rem 0 4.5rem; }
+    .hero-meta-group { margin-bottom: 2rem; }
+    .hero-name { font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+    .hero-role { font-size: 1.2rem; font-weight: 700; color: var(--blue); letter-spacing: -0.01em; }
+    .hero-headline { font-size: clamp(2.8rem, 6.2vw, 5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1.05; color: var(--text); max-width: 20ch; margin-bottom: 2.5rem; }
+    .hero-cta { margin-bottom: 3rem; }
+    .hero-subtext-quote { border-left: 3px solid var(--blue); padding-left: 1.25rem; color: var(--muted); font-size: 1.1rem; max-width: 480px; line-height: 1.45; font-weight: 500; }
 
     /* 2. Introduction Section */
-    .intro-card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      padding: 3rem 3.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,.03);
-    }
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .intro-text h3 {
-      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-    .intro-text p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .intro-disciplines {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .discipline-box {
-      background: var(--bg);
-      padding: 1rem 1.2rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border: 1px solid rgba(0,0,0,.03);
-    }
+    .intro-card { background: var(--surface); border-radius: var(--radius-lg); padding: 3rem 3.5rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); }
+    .intro-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+    .intro-text h3 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.3; margin-bottom: 1rem; }
+    .intro-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.6; }
+    .intro-disciplines { display: flex; flex-direction: column; gap: 0.8rem; }
+    .discipline-box { background: var(--bg); padding: 1rem 1.2rem; border-radius: var(--radius-sm); font-size: 0.92rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 0.6rem; border: 1px solid rgba(0,0,0,.03); }
     .discipline-box span { color: var(--blue); font-weight: 700; }
 
     /* 3. Featured Work */
     .work-showcase { display: flex; flex-direction: column; gap: 2rem; }
     
     /* Hero Project: BookingPie */
-    .hero-project-card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-hero);
-      border: 1px solid rgba(0, 113, 227, 0.15);
-    }
-    .hero-project-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-    }
-    .hero-project-media {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      padding: 2.5rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 480px;
-    }
+    .hero-project-card { background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-hero); border: 1px solid rgba(0, 113, 227, 0.15); }
+    .hero-project-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+    .hero-project-media { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 2.5rem 1.5rem; display: flex; align-items: center; justify-content: center; min-height: 480px; }
     .hero-project-content { padding: 3rem; }
     .hero-project-content h3 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.3rem; }
     .hero-project-subtitle { font-size: 1.15rem; font-weight: 600; color: var(--muted); margin-bottom: 1.2rem; }
 
     /* Secondary Projects Grid */
     .secondary-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .sub-project-card {
-      background: var(--surface);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,.03);
-      display: flex;
-      flex-direction: column;
-    }
-    .sub-project-media {
-      height: 220px;
-      background: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem;
-    }
+    .sub-project-card { background: var(--surface); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); display: flex; flex-direction: column; }
+    .sub-project-media { height: 220px; background: #0f172a; display: flex; align-items: center; justify-content: center; padding: 0.75rem; }
     .sub-project-content { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
     .sub-project-content h4 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.2rem; }
-    .sub-project-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-bottom: 1rem; }
+    .sub-project-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-bottom: 0.8rem; }
+    .card-short-desc { font-size: 0.92rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.5; font-weight: 450; }
     .sub-project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
 
-    /* FIXED MEDIA MOCKUPS (NO CROPPING) */
-    .phone-mock-large { 
-      width: 230px; 
-      height: 460px; 
-      background: #111; 
-      border-radius: 38px; 
-      padding: 8px; 
-      box-shadow: 0 20px 40px rgba(0,0,0,.35); 
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .phone-screen { 
-      height: 100%; 
-      width: 100%;
-      background: #000; 
-      border-radius: 30px; 
-      overflow: hidden; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .phone-screen video { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: contain; 
-      border-radius: 28px;
-    }
+    /* Media Mockups */
+    .phone-mock-large { width: 230px; height: 460px; background: #111; border-radius: 38px; padding: 8px; box-shadow: 0 20px 40px rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,0.12); }
+    .phone-screen { height: 100%; width: 100%; background: #000; border-radius: 30px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .phone-screen video { width: 100%; height: 100%; object-fit: contain; border-radius: 28px; }
     
-    .dashboard-mock { 
-      width: 100%; 
-      height: 100%; 
-      border-radius: 10px; 
-      overflow: hidden; 
-      background: #000; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .dashboard-mock video { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: contain; 
-    }
+    .dashboard-mock { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
+    .dashboard-mock video { width: 100%; height: 100%; object-fit: contain; }
 
-    /* 4. Spatial Design / Design Background */
-    .spatial-card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,.03);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
+    /* 4. Spatial Design */
+    .spatial-card { background: var(--surface); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
     .spatial-info h3 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.4rem; }
-    .spatial-info .pub-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; color: var(--blue); margin-bottom: 1rem; }
-    .spatial-info p { font-size: 1.05rem; color: var(--muted); line-height: 1.55; margin-bottom: 1.5rem; }
+    .spatial-info .pub-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; color: var(--blue); margin-bottom: 1.2rem; }
+    .spatial-points { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+    .spatial-points li { font-size: 0.95rem; color: var(--muted); line-height: 1.5; position: relative; padding-left: 1.2rem; }
+    .spatial-points li::before { content: "•"; color: var(--blue); position: absolute; left: 0; font-weight: bold; }
+    .spatial-media-img { border-radius: var(--radius-md); box-shadow: var(--shadow); object-fit: cover; width: 100%; height: 340px; }
 
     /* 5. Process Section */
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 1rem; }
@@ -400,21 +257,16 @@
             <div class="sub-project-content">
               <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">02 Nomadd Haus</span>
               <h4>Nomadd Haus</h4>
-              <div class="sub-project-subtitle">High Experience, Low Overhead</div>
+              <div class="sub-project-subtitle">Autonomous Space & Self-Service</div>
               
-              <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.45;">
-                <strong>The Logic:</strong> By automating the entry and booking system, the brand can focus its budget on Atmosphere and Interior Design rather than salaries.
-              </p>
-              
-              <p style="font-size: 0.84rem; color: var(--text); margin-bottom: 1.2rem; line-height: 1.45; font-style: italic; background: var(--bg); padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); border-left: 3px solid var(--blue);">
-                "I led the development of a 'Self-Service' journey. From the initial LINE/Web booking to the physical door unlocking, the system is 100% autonomous."
+              <p class="card-short-desc">
+                An automated booking and entry system that removes operational overhead to focus resources on spatial atmosphere.
               </p>
 
               <div class="sub-project-tags">
                 <span class="tag-pill">Self-Service</span>
                 <span class="tag-pill">Autonomous Entry</span>
-                <span class="tag-pill">LINE / Web Booking</span>
-                <span class="tag-pill">Atmosphere & Space</span>
+                <span class="tag-pill">LINE Booking</span>
               </div>
 
               <div style="margin-top: auto; display: flex; gap: 1rem; align-items: center;">
@@ -436,13 +288,16 @@
             <div class="sub-project-content">
               <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">03 Inspection Tool</span>
               <h4>Construction Inspection</h4>
-              <div class="sub-project-subtitle">Field Problem & Dashboard App</div>
+              <div class="sub-project-subtitle">On-Site Acceptance Web App</div>
               
+              <p class="card-short-desc">
+                An instant site-inspection web app for quick photo logging, project memo tracking, and real-time report generation.
+              </p>
+
               <div class="sub-project-tags">
                 <span class="tag-pill">Field Problem</span>
-                <span class="tag-pill">Workflow Analysis</span>
-                <span class="tag-pill">Dashboard Design</span>
-                <span class="tag-pill">Prototype</span>
+                <span class="tag-pill">Photo Capture</span>
+                <span class="tag-pill">Instant Report</span>
               </div>
 
               <div style="margin-top: auto;">
@@ -463,20 +318,15 @@
             <div class="sub-project-content">
               <span style="font-size: 0.78rem; font-weight: 700; color: var(--blue);">04 Circular Concept</span>
               <h4>Re:Craft</h4>
-              <div class="sub-project-subtitle">Digital Marketplace for Discarded Materials</div>
+              <div class="sub-project-subtitle">Circular Material Marketplace</div>
               
-              <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.45;">
-                <strong>The Insight & Problem:</strong> While working in interior design, I noticed huge amounts of high-quality marble and wood are discarded daily simply for being the "wrong size"—wasting significant energy and carbon.
-              </p>
-              
-              <p style="font-size: 0.84rem; color: var(--text); margin-bottom: 1.2rem; line-height: 1.45; background: var(--bg); padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); border-left: 3px solid var(--blue);">
-                <strong>The Goal:</strong> Giving valuable materials a second life by designing a digital marketplace that connects construction waste with designers who transform small pieces into new products.
+              <p class="card-short-desc">
+                A digital platform connecting construction material waste with designers to give discarded marble and wood a second life.
               </p>
 
               <div class="sub-project-tags">
                 <span class="tag-pill">Circular Design</span>
-                <span class="tag-pill">Digital Marketplace</span>
-                <span class="tag-pill">Material Reuse</span>
+                <span class="tag-pill">Marketplace</span>
                 <span class="tag-pill">Sustainability</span>
               </div>
 
@@ -500,20 +350,24 @@
         <div class="spatial-info">
           <h3>Cloister Studio</h3>
           <a class="pub-tag" href="https://leibal.com/interiors/cloister-studio/" target="_blank" rel="noopener">Featured on Leibal ↗</a>
-          <p>Designing a flexible creative environment through spatial systems and user workflows.</p>
+          
+          <ul class="spatial-points">
+            <li><strong>Seamless Co-Living & Work:</strong> Designed an open layout dividing functional zones with angled walls and diagonal cuts rather than heavy solid walls.</li>
+            <li><strong>Continuous Spatial Plane:</strong> Detached the TV cabinet from the ceiling to maintain an unbroken ceiling line, creating a visually expansive feel in a compact footprint.</li>
+            <li><strong>Maximized Natural Light:</strong> Integrated transparent folding doors in the workspace to drive daylight deep into the home and foster a productive environment.</li>
+          </ul>
           
           <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;">
-            <span class="tag-pill">Spatial Experience Design</span>
-            <span class="tag-pill">User Behavior</span>
-            <span class="tag-pill">Space Planning</span>
-            <span class="tag-pill">Material & Atmosphere</span>
-            <span class="tag-pill">Reflection</span>
+            <span class="tag-pill">Spatial Layout</span>
+            <span class="tag-pill">Natural Light</span>
+            <span class="tag-pill">Co-Living & Work</span>
+            <span class="tag-pill">Open Geometry</span>
           </div>
 
           <a href="https://leibal.com/interiors/cloister-studio/" target="_blank" rel="noopener" class="btn secondary">Explore Interior Feature ↗</a>
         </div>
         <div>
-          <img src="https://images.squarespace-cdn.com/content/v1/528a3bdde4b008620247076f/1612443048281-W1K5V0U4Z1T80E4I4N7A/Leibal_Cloister_Studio_01.jpg" alt="Cloister Studio Spatial Design" style="border-radius: var(--radius-md); box-shadow: var(--shadow); object-fit: cover; width: 100%; height: 280px;">
+          <img src="assets/Cloister Studio 06.jpeg" alt="Cloister Studio Spatial Design" class="spatial-media-img" onerror="this.onerror=null; this.src='https://images.squarespace-cdn.com/content/v1/528a3bdde4b008620247076f/1612443048281-W1K5V0U4Z1T80E4I4N7A/Leibal_Cloister_Studio_01.jpg';">
         </div>
       </div>
     </section>
