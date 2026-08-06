@@ -9,377 +9,144 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #f7f9fc 0%, #edf3f8 50%, #f4f7fb 100%);
-      --text-main: #1d1d1f;
-      --text-muted: #515865;
-      --text-subtle: #868e96;
-      --blue-accent: #0071e3;
-      --line-color: rgba(0, 0, 0, 0.12);
-      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.06);
-      --shadow-float: 0 24px 48px rgba(15, 23, 42, 0.12);
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --surface-subtle: #fbfbfd;
+      --surface-card: #f8f9fb;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(0,0,0,.08);
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --shadow: 0 10px 30px rgba(0,0,0,.05);
+      --shadow-hero: 0 20px 48px rgba(0,0,0,.08);
+      --transition: 280ms cubic-bezier(.16,1,.3,1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      min-height: 100vh;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      padding: 2.5rem 2rem 4rem;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    img, video { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
 
-    /* Container canvas mimicking deck presentation slide */
-    .deck-container {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3.5rem;
-    }
+    .wrap { width: min(1000px, calc(100% - 2.5rem)); margin: 0 auto; padding: 2rem 0 5rem; }
 
-    /* Top Navigation / Index Bar */
-    .deck-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text-main);
-    }
+    .back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.92rem; font-weight: 600; color: var(--blue); margin-bottom: 2rem; transition: color var(--transition); }
+    .back:hover { color: var(--blue-hover); }
 
-    .back-link {
-      color: var(--blue-accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: opacity 0.2s ease;
-    }
-    .back-link:hover { opacity: 0.8; }
+    /* Hero Section */
+    .hero { background: var(--surface); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.03); }
+    .eyebrow { font-size: 0.82rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 4.5rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.06em; margin-bottom: 1.2rem; }
+    .hero-desc { font-size: 1.2rem; color: var(--muted); max-width: 58ch; line-height: 1.55; margin-bottom: 3rem; }
 
-    .project-index {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
+    /* Meta Details Grid */
+    .meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+    .meta-item strong { display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-item p { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.45; }
 
-    /* Top Media Grid: Web Preview + Twin Phone Mockups */
-    .media-showcase-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
+    /* Showcase Image Container */
+    .hero-media-wrapper { background: #0f172a; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-hero); border: 1px solid rgba(0,0,0,.06); }
+    .hero-media-wrapper img { width: 100%; height: auto; object-fit: cover; }
 
-    .web-frame {
-      border-radius: 16px;
-      overflow: hidden;
-      background: #ffffff;
-      box-shadow: var(--shadow-float);
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-    .web-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    /* Content Sections */
+    .section { background: var(--surface); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow); margin-top: 2rem; border: 1px solid rgba(0,0,0,.03); }
+    .section-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 2rem; }
 
-    .phones-inline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      align-items: center;
-    }
+    /* Process & Content Grids */
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .panel { background: var(--surface-card); border-radius: var(--radius-md); padding: 1.8rem; border: 1px solid rgba(0,0,0,.02); }
+    .panel strong { display: block; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem; color: var(--text); }
+    .panel p { font-size: 0.98rem; color: var(--muted); line-height: 1.55; }
 
-    .phone-mock {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 8px;
-      box-shadow: var(--shadow-float);
-      border: 1px solid rgba(0,0,0,0.08);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .phone-mock:hover {
-      transform: translateY(-4px);
-    }
-    .phone-mock img {
-      width: 100%;
-      height: auto;
-      border-radius: 22px;
-      display: block;
-    }
+    /* Project Gallery */
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .mock { min-height: 260px; border-radius: var(--radius-md); background: linear-gradient(180deg, #eef3fb 0%, #ffffff 100%); border: 1px solid rgba(0,0,0,.04); }
 
-    /* Bottom Info Split Grid */
-    .info-split-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3.5rem;
-      align-items: flex-start;
-      padding-top: 1.5rem;
+    @media (max-width: 860px) {
+      .hero, .section { padding: 2.2rem 1.8rem; }
+      .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+      .grid, .gallery { grid-template-columns: 1fr; }
     }
-
-    .info-left {
-      padding-right: 1.5rem;
-      border-right: 1px solid var(--line-color);
-    }
-
-    .project-title {
-      font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      line-height: 1.05;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-subtitle {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .project-description {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      line-height: 1.6;
-      max-width: 52ch;
-      margin-bottom: 2.25rem;
-    }
-
-    /* Meta details list */
-    .meta-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      font-size: 0.95rem;
-    }
-
-    .meta-item {
-      display: flex;
-      gap: 0.5rem;
-      line-height: 1.5;
-    }
-
-    .meta-label {
-      font-weight: 700;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-
-    .meta-value {
-      color: var(--text-muted);
-      font-weight: 450;
-    }
-
-    /* Right visual perspective twin phone stack */
-    .info-right-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 1rem 0;
-    }
-
-    .perspective-stage {
-      display: flex;
-      gap: 1.5rem;
-      transform: perspective(1000px) rotateX(10deg) rotateY(-12deg) rotateZ(3deg);
-      transition: transform 0.5s ease;
-    }
-    .perspective-stage:hover {
-      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    }
-
-    .angled-phone {
-      width: 210px;
-      background: #ffffff;
-      border-radius: 32px;
-      padding: 7px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .angled-phone img {
-      width: 100%;
-      height: auto;
-      border-radius: 26px;
-      display: block;
-    }
-
-    /* Process Summary Row */
-    .process-section {
-      margin-top: 1rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--line-color);
-    }
-
-    .process-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .process-step {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .step-num {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--blue-accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .step-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .step-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Responsive Adaptation */
-    @media (max-width: 960px) {
-      .media-showcase-grid,
-      .info-split-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .info-left {
-        border-right: none;
-        padding-right: 0;
-        border-bottom: 1px solid var(--line-color);
-        padding-bottom: 2rem;
-      }
-      .perspective-stage {
-        transform: none;
-      }
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 580px) {
-      body { padding: 1.5rem 1rem 3rem; }
-      .process-grid { grid-template-columns: 1fr; }
-      .angled-phone { width: 160px; }
+    @media (max-width: 520px) {
+      .meta-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <div class="deck-container">
+  <div class="wrap">
+    <a class="back" href="./index.html">← Back to homepage</a>
 
-    <!-- Header Index Bar -->
-    <header class="deck-header">
-      <div class="project-index">01 | BookingPie</div>
-      <a href="./product-portfolio-clear.html" class="back-link">← Back to Overview</a>
-    </header>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="eyebrow">SaaS Booking Management Platform</div>
+      <h1>BookingPie</h1>
+      <p class="hero-desc">
+        BookingPie is a booking management platform designed to reduce manual reservation coordination for small service businesses.
+      </p>
 
-    <!-- Top Main Visual Showcase -->
-    <section class="media-showcase-grid">
-      <!-- Web Platform Screenshot -->
-      <div class="web-frame">
-        <img src="assets/bookingpie-home.png" alt="BookingPie Web Platform Overview" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';">
+      <!-- METADATA GRID -->
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>Timeline</strong>
+          <p>2025 · Taipei</p>
+        </div>
+        <div class="meta-item">
+          <strong>Role</strong>
+          <p>Service Flow Analysis · UX Strategy</p>
+        </div>
+        <div class="meta-item">
+          <strong>Team</strong>
+          <p>Collaborated with PM & Workflow Automation Specialist</p>
+        </div>
+        <div class="meta-item">
+          <strong>Status</strong>
+          <p>Deployed at Nomadd Haus; testing via Sparkle Bar.</p>
+        </div>
       </div>
 
-      <!-- Twin Mobile Views -->
-      <div class="phones-inline">
-        <div class="phone-mock">
-          <img src="assets/bookingpie-phone01.png" alt="BookingPie Mobile Screen 01" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=600&q=80';">
+      <!-- MAIN HERO IMAGE -->
+      <div class="hero-media-wrapper">
+        <img src="assets/bookingpie-home.png" alt="BookingPie Management Interface Preview" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';">
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="section">
+      <h2 class="section-title">Design & Architecture Process</h2>
+      <div class="grid">
+        <div class="panel">
+          <strong>1. Understand the booking journey</strong>
+          <p>Mapped the current flow from inquiry to confirmation to identify drop-off points and operational friction.</p>
         </div>
-        <div class="phone-mock">
-          <img src="assets/bookingpie-phone02.png" alt="BookingPie Mobile Screen 02" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80';">
+        <div class="panel">
+          <strong>2. Restructure the service flow</strong>
+          <p>Created clearer states, user decisions, and booking logic to reduce confusion.</p>
+        </div>
+        <div class="panel">
+          <strong>3. Translate into product UI</strong>
+          <p>Designed key screens and product interactions around booking clarity and trust.</p>
+        </div>
+        <div class="panel">
+          <strong>4. Show the product outcome</strong>
+          <p>Used concise storytelling to explain how service design improved the digital product.</p>
         </div>
       </div>
     </section>
 
-    <!-- Project Description & Metadata Section -->
-    <section class="info-split-grid">
-      <!-- Left Column: Copy & Details -->
-      <div class="info-left">
-        <h1 class="project-title">BookingPie</h1>
-        <div class="project-subtitle">SaaS Booking Management Platform</div>
-        
-        <p class="project-description">
-          BookingPie is a booking management platform designed to reduce manual reservation coordination for small service businesses.
-        </p>
-
-        <div class="meta-list">
-          <div class="meta-item">
-            <span class="meta-label">Timeline -</span>
-            <span class="meta-value">2025 · Taipei</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Role -</span>
-            <span class="meta-value">Service Flow Analysis · UX Strategy</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Team -</span>
-            <span class="meta-value">Collaborated with a Project Manager · Workflow Automation Specialist</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Status -</span>
-            <span class="meta-value">Currently deployed as the reservation system for Nomadd Haus, with additional testing conducted through Sparkle Bar.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Angled Presentation Mockups -->
-      <div class="info-right-visual">
-        <div class="perspective-stage">
-          <div class="angled-phone">
-            <img src="assets/bookingpie-phone01.png" alt="BookingPie Mobile Flow 01" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=600&q=80';">
-          </div>
-          <div class="angled-phone">
-            <img src="assets/bookingpie-phone02.png" alt="BookingPie Mobile Flow 02" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80';">
-          </div>
-        </div>
+    <!-- GALLERY SECTION -->
+    <section class="section">
+      <h2 class="section-title">Project Gallery</h2>
+      <div class="gallery">
+        <div class="mock"></div>
+        <div class="mock"></div>
+        <div class="mock"></div>
+        <div class="mock"></div>
       </div>
     </section>
-
-    <!-- Process Flow Steps -->
-    <section class="process-section">
-      <h2 class="process-title">Design & Service Architecture</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <span class="step-num">01 / Journey</span>
-          <div class="step-title">Understand Flow</div>
-          <p class="step-desc">Mapped the current flow from inquiry to confirmation to identify drop-off points and operational friction.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">02 / Logic</span>
-          <div class="step-title">Restructure Service</div>
-          <p class="step-desc">Created clearer states, user decisions, and booking logic to reduce administrative confusion.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">03 / Interface</span>
-          <div class="step-title">Translate to UI</div>
-          <p class="step-desc">Designed key screens and product interactions centered around booking clarity and client trust.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">04 / Impact</span>
-          <div class="step-title">Product Outcome</div>
-          <p class="step-desc">Engineered automated reservation scheduling that significantly minimizes manual LINE communications.</p>
-        </div>
-      </div>
-    </section>
-
   </div>
 
 </body>
