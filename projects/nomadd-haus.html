@@ -1,2 +1,838 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nomadd Haus Case Study</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{font-family:Inter,sans-serif;background:#f5f5f7;color:#1d1d1f;margin:0;line-height:1.5}.wrap{width:min(980px,calc(100% - 2rem));margin:0 auto;padding:2rem 0 4rem}.back{font-size:.9rem;color:#0071e3;text-decoration:none}h1{font-size:clamp(2.8rem,5vw,5rem);line-height:.95;letter-spacing:-.07em;max-width:8ch;margin:1rem 0}p{color:#6e6e73;max-width:42ch}.hero,.section{background:#fff;border-radius:32px;padding:1.4rem;box-shadow:0 10px 30px rgba(0,0,0,.05);margin-top:1rem}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;margin-top:1rem}.panel{background:#f8f9fb;border-radius:24px;padding:1rem}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.mock{min-height:220px;border-radius:24px;background:linear-gradient(180deg,#f3f2ef,#ffffff)}@media(max-width:720px){.grid,.gallery{grid-template-columns:1fr}}</style></head><body><div class="wrap"><a class="back" href="./product-portfolio-clear.html">← Back to homepage</a><section class="hero"><div style="font-size:.8rem;color:#6e6e73;text-transform:uppercase;letter-spacing:.08em;">Operational System</div><h1>Nomadd Haus</h1><p>A hybrid space operation system connecting bookings, space usage, and community touchpoints into a clearer service ecosystem.</p><div class="grid"><div class="panel"><strong>Role</strong><p>System Designer / Operator</p><strong>Focus</strong><p>Business System Design / Community / Service Ecosystem</p></div><div class="panel"><strong>Challenge</strong><p>Space management, booking, and community interactions were handled through disconnected tools and workflows.</p></div></div></section><section class="section"><h2 style="font-size:2rem;letter-spacing:-.05em;">Project gallery</h2><div class="gallery"><div class="mock"></div><div class="mock"></div><div class="mock"></div><div class="mock"></div></div></section><section class="section"><h2 style="font-size:2rem;letter-spacing:-.05em;">Process</h2><div class="grid"><div class="panel"><strong>1. Define the operational landscape</strong><p>Clarified the different roles, spaces, and service touchpoints involved in daily operations.</p></div><div class="panel"><strong>2. Connect the ecosystem</strong><p>Mapped how booking, communication, and management should support each other.</p></div><div class="panel"><strong>3. Create a system structure</strong><p>Built a clearer interface and content logic for operations and community activity.</p></div><div class="panel"><strong>4. Present the service logic</strong><p>Turned the complexity into a portfolio narrative that feels organized and product-led.</p></div></div></section></div></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomadd Haus Case Study — Yi Yun Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface-subtle: #f8f9fb;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #e5e5ea;
+      --blue: #0071e3;
+      --radius-md: 20px;
+      --shadow-hero: 0 20px 48px rgba(0,0,0,.08);
+      --shadow-card: 0 10px 30px rgba(0,0,0,.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      line-height: 1.5; 
+      -webkit-font-smoothing: antialiased; 
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    .wrap { 
+      width: min(1060px, calc(100% - 3rem)); 
+      margin: 0 auto; 
+      padding: 3rem 0 6rem; 
+    }
+
+    .back { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.4rem; 
+      font-size: 0.92rem; 
+      font-weight: 600; 
+      color: var(--blue); 
+      margin-bottom: 2.5rem; 
+      transition: opacity 0.2s; 
+    }
+    .back:hover { opacity: 0.8; }
+
+    /* SECTION LAYOUTS */
+    .section-clean {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-clean:last-child {
+      border-bottom: none;
+    }
+
+    .eyebrow { 
+      font-size: 0.85rem; 
+      font-weight: 700; 
+      color: var(--blue); 
+      text-transform: uppercase; 
+      letter-spacing: 0.08em; 
+      margin-bottom: 0.8rem; 
+    }
+
+    h1 { 
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem); 
+      font-weight: 800; 
+      line-height: 1.02; 
+      letter-spacing: -0.06em; 
+      margin-bottom: 1.2rem; 
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-desc, .section-desc { 
+      font-size: 1.18rem; 
+      color: var(--muted); 
+      max-width: 64ch; 
+      line-height: 1.6; 
+      margin-bottom: 2.5rem; 
+    }
+
+    /* Meta Details Grid */
+    .meta-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 1.5rem; 
+      margin-bottom: 3.5rem; 
+      padding-top: 2rem; 
+      border-top: 1px solid var(--line); 
+    }
+    .meta-item strong { 
+      display: block; 
+      font-size: 0.82rem; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 0.06em; 
+      color: var(--muted); 
+      margin-bottom: 0.4rem; 
+    }
+    .meta-item p { 
+      font-size: 0.95rem; 
+      font-weight: 600; 
+      color: var(--text); 
+      line-height: 1.45; 
+    }
+
+    /* Hero Media Container */
+    .hero-media-wrapper { 
+      background: var(--surface-subtle); 
+      border-radius: var(--radius-md); 
+      overflow: hidden; 
+      box-shadow: var(--shadow-hero); 
+      border: 1px solid rgba(0,0,0,.06); 
+    }
+    .hero-media-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: scale(1.25);
+      transform-origin: center;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0 3.5rem;
+    }
+
+    .card {
+      background: var(--surface-subtle);
+      padding: 1.8rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,.04);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* SKETCH & PARAGRAPH SECTION */
+    .sketch-section-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .sketch-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .sketch-card {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .sketch-header {
+      padding: 0 0 0.6rem 0;
+      background: transparent;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .sketch-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+    }
+
+    .sketch-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .sketch-crop-frame {
+      width: 100%;
+      height: 225px;
+      overflow: hidden;
+      position: relative;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sketch-crop-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      padding: 0.5rem 0;
+    }
+
+    /* SECTION 2: SIDE-BY-SIDE JOURNEY FLOW & ISOMETRIC DIAGRAM */
+    .journey-section-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+
+    /* VERTICAL JOURNEY TIMELINE */
+    .journey-vertical-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .vertical-track {
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 24px;
+      width: 0;
+      border-left: 2px dashed var(--blue);
+      z-index: 0;
+    }
+
+    .journey-v-node {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 1.2rem;
+      background: transparent;
+      border: none;
+      padding: 0.4rem 0;
+      box-shadow: none;
+    }
+
+    .v-icon-badge {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+
+    .v-node-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .step-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .step-detail {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 0.2rem;
+    }
+
+    .step-detail strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ISOMETRIC IMAGE CONTAINER */
+    .isometric-aside-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      text-align: center;
+      box-shadow: none;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .isometric-aside-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      max-height: 650px;
+      object-fit: contain;
+      transform: scale(1.25);
+      transform-origin: center top;
+    }
+
+    .isometric-caption {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* SECTION 3: INFORMATION ARCHITECTURE */
+    .ia-section-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .problem-pivot-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .insight-block {
+      padding-left: 1.2rem;
+      border-left: 3px solid var(--line);
+    }
+
+    .insight-block.highlight {
+      border-left-color: var(--blue);
+    }
+
+    .insight-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-block.highlight .insight-tag {
+      color: var(--blue);
+    }
+
+    .insight-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .ia-image-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      box-shadow: none;
+      text-align: center;
+    }
+
+    .ia-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    /* SECTION 4: USER INTERFACE DESIGN */
+    .ui-showcase-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .ui-block {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .ui-block.reverse {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .ui-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* MACBOOK LAPTOP MOCKUP FRAME (SMALLER SCALE) */
+    .macbook-frame {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .macbook-screen {
+      background: #1e1e1e;
+      border-radius: 12px 12px 0 0;
+      padding: 8px 8px 0 8px;
+      border: 2px solid #333336;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    .macbook-camera {
+      width: 5px;
+      height: 5px;
+      background: #0a0a0a;
+      border: 1px solid #3a3a3d;
+      border-radius: 50%;
+      margin: 0 auto 6px;
+    }
+
+    .macbook-viewport {
+      background: #ffffff;
+      border-radius: 4px 4px 0 0;
+      overflow: hidden;
+      max-height: 250px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .macbook-viewport img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .macbook-base {
+      position: relative;
+      width: 112%;
+      left: -6%;
+      height: 10px;
+      background: linear-gradient(to bottom, #e1e1e3 0%, #bcbcc0 100%);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .macbook-notch {
+      width: 50px;
+      height: 3px;
+      background: #96969a;
+      margin: 0 auto;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .macbook-frame.center {
+      max-width: 620px;
+    }
+
+    .macbook-frame.center .macbook-viewport {
+      max-height: 340px;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 860px) {
+      .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .sketch-section-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .journey-section-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .ia-section-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .isometric-aside-container { position: static; }
+      .isometric-aside-container img { transform: none; max-height: 520px; }
+      .isometric-caption { margin-top: 1rem; }
+      .ui-block, .ui-block.reverse { grid-template-columns: 1fr; gap: 2rem; }
+      .ui-block.reverse .ui-content { order: -1; }
+      .macbook-frame { max-width: 100%; }
+    }
+
+    @media (max-width: 520px) {
+      .meta-grid { grid-template-columns: 1fr; }
+      .sketch-gallery-grid { grid-template-columns: 1fr; }
+      .sketch-crop-frame { height: 180px; }
+      .journey-v-node { flex-direction: column; gap: 0.8rem; }
+      .vertical-track { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <a class="back" href="../index.html">← Back to homepage</a>
+
+    <!-- HERO SECTION -->
+    <section class="section-clean">
+      <div class="eyebrow">A Physical Headquarters for Digital Communities</div>
+      <h1>Nomadd Haus</h1>
+      <p class="hero-desc">
+        Taiwan has one of the world's most active K-pop fanbases. While these communities are massive online, they lack a dedicated 'Third Space' to host events, trade merchandise, or co-work with like-minded people.
+      </p>
+
+      <!-- METADATA GRID -->
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>Date / Location</strong>
+          <p>2024–2025 · Taipei</p>
+        </div>
+        <div class="meta-item">
+          <strong>Role</strong>
+          <p>Project Lead & Lead Designer</p>
+        </div>
+        <div class="meta-item">
+          <strong>Collaborators</strong>
+          <p>Yu-Han (Branding)<br>Pin-Yu (Graphics)<br>Yi-Zi (Construction)</p>
+        </div>
+        <div class="meta-item">
+          <strong>Scope</strong>
+          <p>Spatial Design · Branding · O2O Community Ecosystem</p>
+        </div>
+      </div>
+
+      <!-- MAIN HERO IMAGE -->
+      <div class="hero-media-wrapper">
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/2323223363d969f5db4c6cf90d96fd8e7020ade1/assets/nomaddhaus-frontdoor.png" alt="Nomadd Haus Entrance Design">
+      </div>
+    </section>
+
+    <!-- SECTION 1: THE SYSTEM & O2O JOURNEY -->
+    <section class="section-clean">
+      <div class="eyebrow">01 / Challenge & Communication System</div>
+      <h2>Bridging Offline Space with Digital Workflows</h2>
+      <p class="section-desc">
+        Nomadd Haus is a shared space designed for creativity and pop culture fans. Operating the space required building an integrated system capable of supporting reservations, exhibitions, and pop-up events. Addressing communication habits was the primary operational challenge.
+      </p>
+
+      <!-- KEY SYSTEM PILLARS -->
+      <div class="cards-grid">
+        <div class="card">
+          <h3>LINE App Integration</h3>
+          <p>Clients in Taiwan rely heavily on LINE for daily communication. Incorporating LINE as the primary touchpoint ensured low-friction user onboarding and seamless messaging.</p>
+        </div>
+        <div class="card">
+          <h3>Calendar Synchronization</h3>
+          <p>Automated booking management syncs seamlessly with Google Calendar, allowing real-time schedule tracking and automated availability management for space hosts.</p>
+        </div>
+        <div class="card">
+          <h3>O2O Journey Mapping</h3>
+          <p>Space management goes beyond user behavior analysis—it connects physical venue interactions directly with digital booking touchpoints into a unified service ecosystem.</p>
+        </div>
+      </div>
+
+      <!-- COMBINED LAYOUT SKETCHES -->
+      <div class="sketch-section-grid">
+        <div class="sketch-text">
+          <div class="eyebrow">Spatial Layout Exploration</div>
+          <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.8rem; letter-spacing: -0.02em;">Combining Linear & Angled Concepts</h3>
+          <p class="section-desc" style="font-size: 1rem; margin-bottom: 0; line-height: 1.55;">
+            During the initial planning stage, we explored two distinct spatial zoning configurations: Version 01 focused on orthogonal alignment, while Version 02 introduced angled flow and flexible counter space. Ultimately, elements from both iterations were combined to optimize visitor circulation and functional flexibility.
+          </p>
+        </div>
+
+        <div class="sketch-gallery-grid">
+          <!-- VERSION 01 -->
+          <div class="sketch-card">
+            <div class="sketch-header">
+              <span class="sketch-tag">Version 01</span>
+              <span class="sketch-title">Linear Spatial Zoning</span>
+            </div>
+            <div class="sketch-crop-frame">
+              <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/487ec0ba3a079b2fd74c7a1a1437557427cc4591/assets/nomaddhaus-sketch02.png" alt="Nomadd Haus Floor Plan Layout Version 01">
+            </div>
+          </div>
+
+          <!-- VERSION 02 -->
+          <div class="sketch-card">
+            <div class="sketch-header">
+              <span class="sketch-tag">Version 02</span>
+              <span class="sketch-title">Angled Spatial Flow</span>
+            </div>
+            <div class="sketch-crop-frame">
+              <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/487ec0ba3a079b2fd74c7a1a1437557427cc4591/assets/nomaddhaus-sketch01.png" alt="Nomadd Haus Floor Plan Layout Version 02">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE DIGITAL-TO-PHYSICAL LOOP & ISOMETRIC DIAGRAM -->
+    <section class="section-clean">
+      <div class="eyebrow">02 / End-to-End User Journey</div>
+      <h2>The Digital-to-Physical Loop</h2>
+      <p class="section-desc">
+        By bridging the Brand Website with IoT hardware, we turned the building into a self-running product.
+      </p>
+
+      <div class="journey-section-layout">
+        
+        <!-- LEFT: JOURNEY FLOW & HIGH EXPERIENCE LOW OVERHEAD INSIGHTS -->
+        <div class="journey-flow-column">
+          <div class="journey-vertical-timeline">
+            <div class="vertical-track"></div>
+
+            <!-- STEP 01 -->
+            <div class="journey-v-node">
+              <div class="v-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div class="v-node-content">
+                <span class="step-number">01</span>
+                <h3 class="step-title">The Brand Storefront</h3>
+                <p class="step-detail"><strong>Action:</strong> Discovery & Community Vibe</p>
+                <p class="step-detail"><strong>Goal:</strong> Moving the "Fan" from social media to booking.</p>
+              </div>
+            </div>
+
+            <!-- STEP 02 -->
+            <div class="journey-v-node">
+              <div class="v-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                  <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path>
+                </svg>
+              </div>
+              <div class="v-node-content">
+                <span class="step-number">02</span>
+                <h3 class="step-title">The Booking Engine</h3>
+                <p class="step-detail"><strong>Action:</strong> Logic, Calendar, and Payment</p>
+                <p class="step-detail"><strong>Goal:</strong> Validating single source of truth & transaction.</p>
+              </div>
+            </div>
+
+            <!-- STEP 03 -->
+            <div class="journey-v-node">
+              <div class="v-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="v-node-content">
+                <span class="step-number">03</span>
+                <h3 class="step-title">Physical Activation</h3>
+                <p class="step-detail"><strong>Action:</strong> Automated Secure Entry</p>
+                <p class="step-detail"><strong>Goal:</strong> Staff-free access via temporary TUYA codes.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- HIGH EXPERIENCE, LOW OVERHEAD STACK -->
+          <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <div class="insight-tag" style="font-size: 0.85rem; color: var(--blue);">High Experience, Low Overhead</div>
+            
+            <div class="insight-block">
+              <div class="insight-tag">The Logic</div>
+              <p class="insight-text" style="font-size: 0.95rem; font-weight: 500; color: var(--muted);">
+                By automating the entry and booking system, the brand can focus its budget on Atmosphere and Interior Design rather than salaries.
+              </p>
+            </div>
+
+            <div class="insight-block highlight">
+              <div class="insight-tag">The Design Choice</div>
+              <p class="insight-text" style="font-size: 0.95rem; font-weight: 600; font-style: italic;">
+                "I led the development of a 'Self-Service' journey. From the initial LINE/Web booking to the physical door unlocking, the system is 100% autonomous."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: ISOMETRIC DIAGRAM -->
+        <div class="isometric-aside-container">
+          <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/2ef6c44e68aecf58627aece0cd98cbb6e8d6d42c/assets/nomaddhaus-isometric.png" alt="Isometric View of Physical Space and Touchpoints">
+          <div class="isometric-caption">Isometric Spatial Diagram — Spatial touchpoints & hardware control hubs</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: INFORMATION ARCHITECTURE & WEBSITE STRUCTURE -->
+    <section class="section-clean">
+      <div class="eyebrow">03 / Information Architecture</div>
+      <h2>Designing the Digital Concierge: Refining the Autonomous Journey</h2>
+      
+      <div class="ia-section-layout">
+        <!-- LEFT: PROBLEM & PIVOT PARAGRAPHS -->
+        <div class="problem-pivot-stack">
+          <div class="insight-block">
+            <div class="insight-tag">The Problem</div>
+            <p class="insight-text">
+              "Initial wireframes relied on simple room lists, which created 'decision fatigue' for fans trying to find the right vibe for their events."
+            </p>
+          </div>
+
+          <div class="insight-block highlight">
+            <div class="insight-tag">The Pivot</div>
+            <p class="insight-text">
+              "I introduced Task-Based Atmosphere Filters, mapping digital user goals directly to physical spatial zones."
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT: WEBSITE STRUCTURE IA DIAGRAM -->
+        <div class="ia-image-container">
+          <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/4791e505b6de274b7fe3932453790d29ee4121bd/assets/nomaddhaus-IA.png" alt="Nomadd Haus Website Structure and Information Architecture">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: USER INTERFACE DESIGN -->
+    <section class="section-clean">
+      <div class="eyebrow">04 / User Interface Design</div>
+      <h2>Evolving the Digital Interface</h2>
+      <p class="section-desc">
+        Refining the core experience from standard spatial listings to an intuitive digital concierge tailored for physical community activations.
+      </p>
+
+      <div class="ui-showcase-container">
+        <!-- THE PROBLEM: HOME V1 -->
+        <div class="ui-block">
+          <div class="ui-content">
+            <div class="insight-block" style="border-left-color: #e5e5ea;">
+              <div class="insight-tag">The Problem</div>
+              <p class="insight-text" style="font-size: 1rem; color: var(--muted); font-weight: 500;">
+                "Initial wireframes relied on simple room lists, which created 'decision fatigue' for fans trying to find the right vibe for their events."
+              </p>
+            </div>
+          </div>
+
+          <!-- MACBOOK MOCKUP V1 -->
+          <div class="macbook-frame">
+            <div class="macbook-screen">
+              <div class="macbook-camera"></div>
+              <div class="macbook-viewport">
+                <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/4791e505b6de274b7fe3932453790d29ee4121bd/assets/nomaddhaus-Home-v1.png" alt="Initial UI Design - Room Lists Wireframe (Home v1)">
+              </div>
+            </div>
+            <div class="macbook-base">
+              <div class="macbook-notch"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THE PIVOT & SOLUTION SHOWCASE -->
+        <div class="ui-block reverse">
+          <!-- MACBOOK MOCKUP V2 -->
+          <div class="macbook-frame">
+            <div class="macbook-screen">
+              <div class="macbook-camera"></div>
+              <div class="macbook-viewport">
+                <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/b38382ac0ed697ad3128c7e8fb75782a10603b6e/assets/nomaddhaus-Home-v2.png" alt="Final UI Design - Home v2 Storefront">
+              </div>
+            </div>
+            <div class="macbook-base">
+              <div class="macbook-notch"></div>
+            </div>
+          </div>
+
+          <div class="ui-content">
+            <div class="problem-pivot-stack">
+              <div class="insight-block highlight">
+                <div class="insight-tag">The Pivot</div>
+                <p class="insight-text">
+                  "I introduced Task-Based Atmosphere Filters, mapping digital user goals directly to physical spatial zones."
+                </p>
+              </div>
+
+              <div class="insight-block highlight">
+                <div class="insight-tag">The Solution</div>
+                <p class="insight-text">
+                  "The final UI acts as a Digital Concierge, guiding users through the selection process and triggering the automated IoT entry sequence upon confirmation."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ATMOSPHERE FILTER SHOWCASE -->
+        <div style="margin-top: 1rem;">
+          <div class="eyebrow" style="margin-bottom: 1.2rem; text-align: center;">Atmosphere Filtering System</div>
+          
+          <!-- MACBOOK MOCKUP ATMOSPHERE -->
+          <div class="macbook-frame center">
+            <div class="macbook-screen">
+              <div class="macbook-camera"></div>
+              <div class="macbook-viewport">
+                <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/b38382ac0ed697ad3128c7e8fb75782a10603b6e/assets/nomaddhaus-atmosphere.png" alt="Nomadd Haus Task-Based Atmosphere Filters Interface">
+              </div>
+            </div>
+            <div class="macbook-base">
+              <div class="macbook-notch"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
