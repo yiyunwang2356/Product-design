@@ -49,6 +49,25 @@
     }
     .back:hover { opacity: 0.8; }
 
+    /* WEBSITE BUTTON STYLES */
+    .btn-website {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      background-color: var(--blue);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 980px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      margin-bottom: 2.5rem;
+    }
+    .btn-website:hover {
+      background-color: #0077ed;
+      transform: translateY(-1px);
+    }
+
     /* SECTION LAYOUTS */
     .section-clean {
       padding: 4rem 0;
@@ -89,7 +108,7 @@
       color: var(--muted); 
       max-width: 64ch; 
       line-height: 1.6; 
-      margin-bottom: 2.5rem; 
+      margin-bottom: 1.8rem; 
     }
 
     /* Meta Details Grid */
@@ -231,7 +250,7 @@
     .journey-section-layout {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
-      gap: 2.5rem;
+      gap: 3rem;
       align-items: start;
       margin-top: 2rem;
     }
@@ -328,14 +347,13 @@
       height: auto;
       display: block;
       margin: 0 auto;
-      max-height: 650px;
+      max-height: 520px;
       object-fit: contain;
-      transform: scale(1.25);
-      transform-origin: center top;
+      transform: none;
     }
 
     .isometric-caption {
-      margin-top: 2.5rem;
+      margin-top: 1.2rem;
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--muted);
@@ -345,45 +363,16 @@
     /* SECTION 3: INFORMATION ARCHITECTURE */
     .ia-section-layout {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 0.85fr 1.15fr;
       gap: 2.5rem;
       align-items: center;
       margin-top: 2rem;
     }
 
-    .problem-pivot-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .insight-block {
-      padding-left: 1.2rem;
-      border-left: 3px solid var(--line);
-    }
-
-    .insight-block.highlight {
-      border-left-color: var(--blue);
-    }
-
-    .insight-tag {
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .insight-block.highlight .insight-tag {
-      color: var(--blue);
-    }
-
-    .insight-text {
+    .ia-description {
       font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.55;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
     .ia-image-container {
@@ -425,6 +414,41 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .problem-pivot-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .insight-block {
+      padding-left: 1.2rem;
+      border-left: 3px solid var(--line);
+    }
+
+    .insight-block.highlight {
+      border-left-color: var(--blue);
+    }
+
+    .insight-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-block.highlight .insight-tag {
+      color: var(--blue);
+    }
+
+    .insight-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.55;
     }
 
     /* MACBOOK LAPTOP MOCKUP FRAME (SMALLER SCALE) */
@@ -502,7 +526,7 @@
       .journey-section-layout { grid-template-columns: 1fr; gap: 2rem; }
       .ia-section-layout { grid-template-columns: 1fr; gap: 2rem; }
       .isometric-aside-container { position: static; }
-      .isometric-aside-container img { transform: none; max-height: 520px; }
+      .isometric-aside-container img { max-height: 520px; }
       .isometric-caption { margin-top: 1rem; }
       .ui-block, .ui-block.reverse { grid-template-columns: 1fr; gap: 2rem; }
       .ui-block.reverse .ui-content { order: -1; }
@@ -530,6 +554,15 @@
       <p class="hero-desc">
         Taiwan has one of the world's most active K-pop fanbases. While these communities are massive online, they lack a dedicated 'Third Space' to host events, trade merchandise, or co-work with like-minded people.
       </p>
+
+      <!-- LIVE WEBSITE BUTTON -->
+      <a class="btn-website" href="https://nomaddhaus.com" target="_blank" rel="noopener noreferrer">
+        Visit Website
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
 
       <!-- METADATA GRID -->
       <div class="meta-grid">
@@ -720,21 +753,11 @@
       <h2>Designing the Digital Concierge: Refining the Autonomous Journey</h2>
       
       <div class="ia-section-layout">
-        <!-- LEFT: PROBLEM & PIVOT PARAGRAPHS -->
-        <div class="problem-pivot-stack">
-          <div class="insight-block">
-            <div class="insight-tag">The Problem</div>
-            <p class="insight-text">
-              "Initial wireframes relied on simple room lists, which created 'decision fatigue' for fans trying to find the right vibe for their events."
-            </p>
-          </div>
-
-          <div class="insight-block highlight">
-            <div class="insight-tag">The Pivot</div>
-            <p class="insight-text">
-              "I introduced Task-Based Atmosphere Filters, mapping digital user goals directly to physical spatial zones."
-            </p>
-          </div>
+        <!-- LEFT: REPLACEMENT PARAGRAPH -->
+        <div class="ia-description">
+          <p>
+            To transform a physical venue into an autonomous digital experience, the platform structure was designed to guide users through an intuitive decision-making process. By mapping real-world community events directly to tailored spatial zones, the system eliminates booking confusion and streamlines the path from initial space exploration to automated IoT keycode generation.
+          </p>
         </div>
 
         <!-- RIGHT: WEBSITE STRUCTURE IA DIAGRAM -->
