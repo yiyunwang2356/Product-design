@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloister Studio — Spatial Design Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --blue: #2563eb;
+        --muted: #64748b;
+        --surface-subtle: #ffffff;
+        --line: #e2e8f0;
+        --radius-sm: 12px;
+        --radius-lg: 20px;
+        --text: #0f172a;
+        --bg: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+        line-height: 1.6;
+        padding: 3rem 1.5rem 5rem;
+      }
+
+      .wrap {
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .back {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #0071e3;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        transition: opacity 0.2s;
+      }
+
+      .back:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Header Section */
+      .hero {
+        margin-bottom: 4.5rem;
+      }
+
+      .category-tag {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .category-tag a {
+        color: var(--blue);
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+
+      .category-tag a:hover {
+        text-decoration: underline;
+      }
+
+      h1.project-title {
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        margin-bottom: 1.25rem;
+        max-width: 18ch;
+      }
+
+      .project-desc {
+        font-size: 1.2rem;
+        color: var(--muted);
+        max-width: 60ch;
+        line-height: 1.55;
+        margin-bottom: 2.5rem;
+      }
+
+      /* Clean Meta Info Row */
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1.2fr;
+        gap: 1.5rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .meta-card strong {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text);
+        margin-bottom: 0.35rem;
+      }
+
+      .meta-card p {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      /* Section Common Styling */
+      .section {
+        margin-bottom: 5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        margin-bottom: 1.75rem;
+      }
+
+      .ui-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+      }
+
+      .problem-pivot-stack {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .insight-block {
+        padding: 1.25rem;
+        border-radius: var(--radius-sm);
+        background: var(--surface-subtle);
+        border: 1px solid var(--line);
+      }
+
+      .insight-block.alert-highlight {
+        border-left: 4px solid var(--blue);
+      }
+
+      .insight-tag {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+
+      .insight-block p {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .ui-media {
+        flex: 1.3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Image Frame Styling */
+      .feature-frame {
+        width: 100%;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--line);
+        background: #ffffff;
+        overflow: hidden;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+      }
+
+      .feature-viewport {
+        width: 100%;
+        overflow: hidden;
+        background: #f8fafc;
+      }
+
+      .feature-viewport img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
+      /* Scaled Down Architectural Diagram (0.8x / 80% size) */
+      .diagram-frame {
+        width: 80%;
+        margin: 0 auto;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--line);
+        background: #ffffff;
+        overflow: hidden;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+      }
+
+      .diagram-viewport {
+        width: 100%;
+        overflow: hidden;
+        background: #f8fafc;
+      }
+
+      .diagram-viewport img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      /* Spatial Media Side Gallery */
+      .spatial-gallery-side {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .spatial-img-card {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        background: #000;
+        border: 1px solid var(--line);
+        aspect-ratio: 4 / 3;
+        position: relative;
+      }
+
+      .spatial-img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .spatial-img-card:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Spatial Experience / Workflow Grid */
+      .workflow-container {
+        position: relative;
+        margin-top: 2rem;
+      }
+
+      .workflow-line {
+        position: absolute;
+        top: 32px;
+        left: 10%;
+        right: 10%;
+        border-top: 2px dotted #94a3b8;
+        z-index: 0;
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .workflow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        height: 100%;
+      }
+
+      .workflow-step-header {
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      .workflow-step-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .workflow-icon-wrapper {
+        background: var(--bg);
+        padding-right: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+        height: 56px;
+      }
+
+      .workflow-icon-wrapper svg {
+        width: 48px;
+        height: 48px;
+        stroke: #1e293b;
+        stroke-width: 1.6;
+      }
+
+      .workflow-step-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.45;
+        min-height: 4.8rem;
+        margin-bottom: 1.25rem;
+      }
+
+      /* Portrait Aspect Ratio Cards */
+      .workflow-visual {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: var(--radius-sm);
+        background: #ffffff;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: auto;
+        box-sizing: border-box;
+      }
+
+      .workflow-visual.fill-card {
+        padding: 0;
+      }
+
+      .step-img-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step-img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Process Grid */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .process-card {
+        background: var(--surface-subtle);
+        border-radius: var(--radius-sm);
+        padding: 1.5rem;
+        border: 1px solid var(--line);
+      }
+
+      .process-card strong {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .process-card p {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* Bottom Photography Lightbox Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #000;
+        aspect-ratio: 4 / 3;
+        text-decoration: none;
+        display: block;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease, opacity 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.85) 100%);
+        color: #ffffff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-caption {
+        opacity: 1;
+      }
+
+      /* Pure CSS Lightbox Overlay Modal */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .lightbox-modal:target {
+        display: flex;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lightbox-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: var(--radius-sm);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -2.5rem;
+        right: 0;
+        color: #ffffff;
+        font-size: 2rem;
+        text-decoration: none;
+        font-weight: 700;
+        line-height: 1;
+        transition: opacity 0.2s;
+      }
+
+      .lightbox-close:hover {
+        opacity: 0.7;
+      }
+
+      .lightbox-title {
+        color: #f8fafc;
+        margin-top: 1rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      /* Mobile Responsive Layout */
+      @media (max-width: 880px) {
+        .ui-block {
+          flex-direction: column;
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .diagram-frame {
+          width: 100%;
+        }
+
+        .workflow-line {
+          display: none;
+        }
+
+        .workflow-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .workflow-step {
+          border-left: 2px dotted #94a3b8;
+          padding-left: 1.25rem;
+        }
+
+        .workflow-step-desc {
+          min-height: auto;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="./product-portfolio-clear.html">← Back to homepage</a>
+
+      <!-- Hero Header Section -->
+      <header class="hero">
+        <div class="category-tag">
+          Spatial Experience &amp; Architecture
+          <span>•</span>
+          <a href="https://leibal.com/interiors/cloister-studio/" target="_blank" rel="noopener">Featured on Leibal ↗</a>
+        </div>
+        <h1 class="project-title">Cloister Studio</h1>
+        <p class="project-desc">
+          Freedom to Move and See — Connecting user behavior to space to create an open, bright, and user-friendly living-working workflow.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-card">
+            <strong>Role</strong>
+            <p>Project Lead &amp; Lead Designer</p>
+          </div>
+          <div class="meta-card">
+            <strong>Date / Location</strong>
+            <p>2025 Taipei</p>
+          </div>
+          <div class="meta-card">
+            <strong>Collaborators</strong>
+            <p>Shan Shan Chuan Design Studio (Construction)</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Spatial Concept: Freedom to Move and See -->
+      <section class="section">
+        <h2 class="section-title">Freedom to Move and See</h2>
+
+        <div class="ui-block">
+          <div class="problem-pivot-stack">
+            <div class="insight-block alert-highlight">
+              <div class="insight-tag">Hybrid Co-Existence</div>
+              <p>My goal was to make an open space where living and working can happen together. I used angled walls and diagonal cuts to divide the rooms without using heavy traditional walls.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">Continuous Ceiling Plane</div>
+              <p>To make the small layout feel unified, I detached the TV cabinet from the ceiling. By keeping the ceiling plane continuous, I prevented a visual break. This allows the space to feel more expansive and open.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">Deep Daylight Penetration</div>
+              <p>Working from home shouldn't feel like being in a box. I designed a layout that brings in natural light from the windows to the deepest parts of the floor plan. Using transparent and perforated materials, the studio stays bright and open, helping the client stay energized and focused all day.</p>
+            </div>
+          </div>
+
+          <div class="spatial-gallery-side">
+            <div class="spatial-img-card">
+              <img 
+                src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/86f1ce9e1b8d2eae304490c4d86f35424d851267/assets/Cloister%20Studio%2006.jpeg" 
+                alt="Cloister Studio Main Living View" 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architectural Diagram & Spatial Logic (Scaled down to 0.8x) -->
+      <section class="section">
+        <h2 class="section-title">Architectural Diagram &amp; Flow Analysis</h2>
+
+        <div class="ui-block">
+          <div class="problem-pivot-stack">
+            <div class="insight-block alert-highlight">
+              <div class="insight-tag">Natural Light Ingress</div>
+              <p><strong>Bring in the natural light:</strong> The upper geometry redirects external daylight past glass partitions, illuminating both the workspace and interior private quarters.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">Circular Circulation</div>
+              <p><strong>Easy Flow:</strong> You can walk through the space in a smooth, circular way. The absence of traditional dead-end hallways creates fluid movement between working and living routines.</p>
+            </div>
+          </div>
+
+          <div class="ui-media">
+            <div class="diagram-frame">
+              <div class="diagram-viewport">
+                <img 
+                  src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/678ca85121f3206fa46526bf70473237b558cf42/assets/Cloister%20Studio-diagram.png" 
+                  alt="Cloister Studio Spatial Diagram showing light and circulation flow" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spatial Experience & Zones -->
+      <section class="section">
+        <h2 class="section-title">Spatial Experience &amp; Flow</h2>
+
+        <div class="workflow-container">
+          <div class="workflow-line"></div>
+
+          <div class="workflow-grid">
+            <!-- Zone 1 -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">1. Entry Threshold</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 52V12h40v40H12z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24 52V28h16v24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                Detached the storage from the ceiling, automatically dividing different functional areas without visual barriers.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fa0527746690c240f34b89b4732b6e365f760155/assets/Cloister%20Studio%2005.jpeg" 
+                    alt="Entry Threshold and detached storage layout" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Zone 2 -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">2. Co-Working Hub</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="20" width="44" height="24" rx="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20 44v10M44 44v10M14 32h36" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                Flexible Walls: Used metal and glass sliding doors. Close them for a quiet, private office atmosphere.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2003.jpeg" 
+                    alt="Co-Working Hub with closed metal and glass sliding doors" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Zone 3 -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">3. Glazed Partition</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="12" width="48" height="40" rx="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24 12v40M40 12v40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                Open them completely to make the whole house feel like one single, continuous, and spacious room.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2002.jpeg" 
+                    alt="Open glazed partition transforming space into one big room" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Zone 4 -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">4. Private Quarters</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 44V20a4 4 0 014-4h36a4 4 0 014 4v24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 36h44M18 52v-8M46 52v-8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                Master room with sliding door integration, seamlessly connecting the suite, working area, and dressing room.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/0bc62a2025f5629f3c474b123d1d820e59f0d119/assets/Cloister%20Studio%2014.jpeg" 
+                    alt="Master room private quarters showing connecting suite and dressing area" 
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Material Palette & Tactile System Section -->
+      <section class="section">
+        <h2 class="section-title">Material Palette &amp; Tactile Contrast</h2>
+
+        <div class="ui-block">
+          <div class="problem-pivot-stack">
+            <div class="insight-block alert-highlight">
+              <div class="insight-tag">Warmth &amp; Structure</div>
+              <p>Paired warm natural wood with concrete grey tones to create a rich, tactile contrast between soft organic comfort and modern structural clarity.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">Dynamic Storage &amp; Living Wall</div>
+              <p>Developed perforated metal doors as a flexible storage system. They serve as hanging space while doubling as a living wall for plants, bringing nature into the modern interior.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">User Behavior Integration</div>
+              <p>By connecting user behavior directly to the spatial layout, the design supports a dynamic, adaptable lifestyle with an effortless living-working workflow.</p>
+            </div>
+          </div>
+
+          <div class="ui-media">
+            <div class="feature-frame">
+              <div class="feature-viewport">
+                <img 
+                  src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/eebf1c4d17d890b295717cf13df1af1162f19732/assets/Cloister%20Studio-material.png" 
+                  alt="Cloister Studio Material Palette and Tactile Contrast Diagram" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design Process & Construction Execution -->
+      <section class="section">
+        <h2 class="section-title">Design Execution &amp; Workflow Optimization</h2>
+        <div class="process-grid">
+          <div class="process-card">
+            <strong>1. Angled Geometry &amp; Circulation</strong>
+            <p>Mapped circular paths to eliminate traditional corridors, increasing usable living area while enabling a smooth, user-friendly movement flow.</p>
+          </div>
+          <div class="process-card">
+            <strong>2. Ceiling Continuation &amp; Joinery</strong>
+            <p>Engineered detached floating cabinetry with Shan Shan Chuan Design Studio to preserve uninterrupted ceiling sightlines across zones.</p>
+          </div>
+          <div class="process-card">
+            <strong>3. Perforated Material Light Diffusion</strong>
+            <p>Positioned metal perforations and transparent glass doors so daylight penetrates from exterior windows deep into interior working zones.</p>
+          </div>
+          <div class="process-card">
+            <strong>4. Integrated Biophilic Storage</strong>
+            <p>Crafted modular metal doors that double as functional hanging systems and vertical indoor plant displays for everyday well-being.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Photography Lightbox Gallery Section -->
+      <section class="section">
+        <h2 class="section-title">Photography Showcase</h2>
+        <div class="gallery-grid">
+          <a href="#img1" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/86f1ce9e1b8d2eae304490c4d86f35424d851267/assets/Cloister%20Studio%2001.jpg" 
+              alt="Daylight & Main Interior Space" 
+            />
+            <div class="gallery-caption">Daylight &amp; Main Interior Space ↗</div>
+          </a>
+
+          <a href="#img2" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2002.jpeg" 
+              alt="Open Glazed Partition Concept" 
+            />
+            <div class="gallery-caption">Open Glazed Partition ↗</div>
+          </a>
+
+          <a href="#img3" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2003.jpeg" 
+              alt="Co-Working Hub with Sliding Glass Doors" 
+            />
+            <div class="gallery-caption">Co-Working Hub ↗</div>
+          </a>
+
+          <a href="#img4" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fa0527746690c240f34b89b4732b6e365f760155/assets/Cloister%20Studio%2005.jpeg" 
+              alt="Entry Threshold & Detached Storage" 
+            />
+            <div class="gallery-caption">Entry Threshold ↗</div>
+          </a>
+
+          <a href="#img5" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/86f1ce9e1b8d2eae304490c4d86f35424d851267/assets/Cloister%20Studio%2006.jpeg" 
+              alt="Living & Working Unified Space" 
+            />
+            <div class="gallery-caption">Unified Living Space ↗</div>
+          </a>
+
+          <a href="#img6" class="gallery-item">
+            <img 
+              src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/0bc62a2025f5629f3c474b123d1d820e59f0d119/assets/Cloister%20Studio%2014.jpeg" 
+              alt="Master Suite & Dressing Room" 
+            />
+            <div class="gallery-caption">Private Master Quarters ↗</div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Lightbox Modals -->
+    <div id="img1" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/86f1ce9e1b8d2eae304490c4d86f35424d851267/assets/Cloister%20Studio%2001.jpg" alt="Daylight & Main Interior Space" />
+        <div class="lightbox-title">Daylight &amp; Main Interior Space</div>
+      </div>
+    </div>
+
+    <div id="img2" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2002.jpeg" alt="Open Glazed Partition Concept" />
+        <div class="lightbox-title">Open Glazed Partition</div>
+      </div>
+    </div>
+
+    <div id="img3" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a7cd6093fd366e0fbbe531164a9a794e65b596ad/assets/Cloister%20Studio%2003.jpeg" alt="Co-Working Hub with Sliding Glass Doors" />
+        <div class="lightbox-title">Co-Working Hub</div>
+      </div>
+    </div>
+
+    <div id="img4" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/fa0527746690c240f34b89b4732b6e365f760155/assets/Cloister%20Studio%2005.jpeg" alt="Entry Threshold & Detached Storage" />
+        <div class="lightbox-title">Entry Threshold &amp; Detached Storage</div>
+      </div>
+    </div>
+
+    <div id="img5" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/86f1ce9e1b8d2eae304490c4d86f35424d851267/assets/Cloister%20Studio%2006.jpeg" alt="Living & Working Unified Space" />
+        <div class="lightbox-title">Unified Living Space</div>
+      </div>
+    </div>
+
+    <div id="img6" class="lightbox-modal">
+      <div class="lightbox-content">
+        <a href="#gallery-close" class="lightbox-close">&times;</a>
+        <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/0bc62a2025f5629f3c474b123d1d820e59f0d119/assets/Cloister%20Studio%2014.jpeg" alt="Master Suite & Dressing Room" />
+        <div class="lightbox-title">Private Master Quarters</div>
+      </div>
+    </div>
+  </body>
+</html>
