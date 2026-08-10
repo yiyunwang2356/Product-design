@@ -485,71 +485,193 @@
       line-height: 1.55; 
     }
     /* MACBOOK LAPTOP MOCKUP FRAME */
-    .macbook-frame {
-      width: 100%;
-      max-width: 580px;
-      margin: 0 auto;
-      position: relative;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merchant Dashboard Showcase</title>
+    <style>
+      :root {
+        --blue: #2563eb;
+        --muted: #64748b;
+        --surface-subtle: #f8fafc;
+        --line: #e2e8f0;
+        --radius-sm: 8px;
+        --radius-lg: 16px;
+        --text: #0f172a;
+        --bg: #ffffff;
+      }
 
-    .macbook-screen {
-      background: #1e1e1e;
-      border-radius: 12px 12px 0 0;
-      padding: 8px 8px 0 8px;
-      border: 2px solid #333336;
-      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-      position: relative;
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    .macbook-camera {
-      width: 5px;
-      height: 5px;
-      background: #0a0a0a;
-      border: 1px solid #3a3a3d;
-      border-radius: 50%;
-      margin: 0 auto 6px;
-    }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+        line-height: 1.6;
+        padding: 3rem 1.5rem;
+      }
 
-    .macbook-viewport {
-      background: #ffffff;
-      border-radius: 4px 4px 0 0;
-      overflow: hidden;
-      max-height: 360px;
-      overflow-y: auto;
-      scrollbar-width: thin;
-    }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
 
-    .macbook-viewport img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
 
-    .macbook-base {
-      position: relative;
-      width: 112%;
-      left: -6%;
-      height: 10px;
-      background: linear-gradient(to bottom, #e1e1e3 0%, #bcbcc0 100%);
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
+      .section-desc {
+        font-size: 1.05rem;
+        color: var(--muted);
+        margin-bottom: 2.5rem;
+        max-width: 65ch;
+        line-height: 1.5;
+      }
 
-    .macbook-notch {
-      width: 50px;
-      height: 3px;
-      background: #96969a;
-      margin: 0 auto;
-      border-radius: 0 0 3px 3px;
-    }
+      .ui-showcase-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
+      }
 
-    .macbook-frame.center {
-      max-width: 720px;
-    }
+      .ui-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.5rem;
+        width: 100%;
+      }
 
-    .macbook-frame.center .macbook-viewport {
-      max-height: 420px;
-    }
+      .problem-pivot-stack {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .insight-block {
+        padding: 1.25rem;
+        border-radius: var(--radius-sm);
+        background: var(--surface-subtle);
+        border: 1px solid var(--line);
+      }
+
+      .insight-block.alert-highlight {
+        border-left: 4px solid var(--blue);
+      }
+
+      .insight-tag {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+
+      .insight-block p {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .ui-media {
+        flex: 1.2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* MacBook Mockup Frame CSS */
+      .macbook-frame {
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      .macbook-screen {
+        background: #0d0d0d;
+        border-radius: 12px 12px 0 0;
+        padding: 10px 10px 0 10px;
+        position: relative;
+        border: 2px solid #2d2d2d;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .macbook-camera {
+        width: 6px;
+        height: 6px;
+        background-color: #1a1a1a;
+        border-radius: 50%;
+        margin: 0 auto 6px auto;
+        border: 1px solid #333;
+      }
+
+      .macbook-viewport {
+        background: #fff;
+        border-radius: 4px 4px 0 0;
+        aspect-ratio: 16 / 10;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      }
+
+      /* Custom scrollbar styling */
+      .macbook-viewport::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      .macbook-viewport::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+
+      /* Middle-aligned enlarged inner image */
+      .macbook-viewport img {
+        width: 140%;
+        max-width: none;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+
+      .macbook-base {
+        height: 14px;
+        background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+        border-radius: 0 0 12px 12px;
+        position: relative;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .macbook-notch {
+        width: 60px;
+        height: 4px;
+        background: #94a3b8;
+        border-radius: 0 0 4px 4px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 860px) {
+        .ui-block {
+          flex-direction: column;
+        }
+      }
     /* RESPONSIVE DESIGN */
     @media (max-width: 860px) {
       .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
@@ -1011,51 +1133,43 @@
     </section>
 
        <!-- SECTION 1: MERCHANT DASHBOARD OVERVIEW -->
-    <section class="section-clean">
-      <div class="eyebrow">01 / Desktop Merchant Dashboard</div>
-      <h2>Real-Time Order Command Center</h2>
-      <p class="section-desc">
-        Merchants need an operational hub that immediately draws attention to urgent incoming requests without interrupting their ongoing workflow.
-      </p>
+  <body>
+    <div class="container">
+      <section class="showcase-section">
+        <h2 class="section-title">Merchant Dashboard</h2>
+        <p class="section-desc">Streamlining room availability management and booking alerts for real-time operation efficiency.</p>
 
-      <div class="ui-showcase-container">
-        <!-- BOOKINGPIE MERCHANT DASHBOARD SECTION -->
-        <div class="ui-block">
-          <div class="ui-content">
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.2rem; letter-spacing: -0.02em;">Centralized Merchant Dashboard</h3>
-            
+        <div class="ui-showcase-container">
+          <div class="ui-block">
             <div class="problem-pivot-stack">
               <div class="insight-block alert-highlight">
                 <div class="insight-tag">Instant Booking Notifications</div>
-                <p class="insight-text">
-                  Newly received bookings are instantly highlighted with a distinct yellow background, providing an immediate visual cue that prompts merchants to follow up promptly.
-                </p>
+                <p>Automated alerts notify staff immediately upon booking creation, eliminating response lag and preventing missed reservations.</p>
               </div>
-
-              <div class="insight-block highlight">
-                <div class="insight-tag">Flexible Order Management</div>
-                <p class="insight-text">
-                  Streamlines daily operations by giving merchants direct control to view, update, and edit all booking details within a unified workspace.
-                </p>
+              <div class="insight-block">
+                <div class="insight-tag">Unified Calendar View</div>
+                <p>Centralizes room availabilities into a single source of truth to eliminate double-bookings and manual cross-checking.</p>
               </div>
             </div>
-          </div>
 
-          <!-- MACBOOK MOCKUP -->
-          <div class="macbook-frame">
-            <div class="macbook-screen">
-              <div class="macbook-camera"></div>
-              <div class="macbook-viewport">
-                <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/620ba749c3fbbda456c1ca6101def008444b6aff/assets/bookingpie-dashboard.jpg" alt="BookingPie Merchant Dashboard - Real-time Booking & Management View">
+            <div class="ui-media">
+              <div class="macbook-frame">
+                <div class="macbook-screen">
+                  <div class="macbook-camera"></div>
+                  <div class="macbook-viewport">
+                    <img src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/0f2d746c8c0b31e1dcdde48b59c28cc7b76fdcec/assets/bookingpie-dashboard.jpg" alt="Merchant Dashboard Showcase" />
+                  </div>
+                </div>
+                <div class="macbook-base">
+                  <div class="macbook-notch"></div>
+                </div>
               </div>
-            </div>
-            <div class="macbook-base">
-              <div class="macbook-notch"></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+  </body>
 
     <!-- OUTCOMES & REFLECTION SECTION (WITH ICONS) -->
     <section class="section-clean">
