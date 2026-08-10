@@ -1,2 +1,745 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Re:Craft Case Study</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{font-family:Inter,sans-serif;background:#f5f5f7;color:#1d1d1f;margin:0;line-height:1.5}.wrap{width:min(980px,calc(100% - 2rem));margin:0 auto;padding:2rem 0 4rem}.back{font-size:.9rem;color:#0071e3;text-decoration:none}h1{font-size:clamp(2.8rem,5vw,5rem);line-height:.95;letter-spacing:-.07em;max-width:8ch;margin:1rem 0}p{color:#6e6e73;max-width:42ch}.hero,.section{background:#fff;border-radius:32px;padding:1.4rem;box-shadow:0 10px 30px rgba(0,0,0,.05);margin-top:1rem}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;margin-top:1rem}.panel{background:#f8f9fb;border-radius:24px;padding:1rem}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.mock{min-height:220px;border-radius:24px;background:linear-gradient(180deg,#f6f3ee,#ffffff)}@media(max-width:720px){.grid,.gallery{grid-template-columns:1fr}}</style></head><body><div class="wrap"><a class="back" href="./product-portfolio-clear.html">← Back to homepage</a><section class="hero"><div style="font-size:.8rem;color:#6e6e73;text-transform:uppercase;letter-spacing:.08em;">Concept Project</div><h1>Re:Craft</h1><p>A future-facing concept system exploring circular design, product vision, and speculative service possibilities.</p><div class="grid"><div class="panel"><strong>Role</strong><p>System Designer</p><strong>Focus</strong><p>Vision / Exploration</p></div><div class="panel"><strong>Challenge</strong><p>How might a more circular product and service system be structured in a meaningful and usable way?</p></div></div></section><section class="section"><h2 style="font-size:2rem;letter-spacing:-.05em;">Project gallery</h2><div class="gallery"><div class="mock"></div><div class="mock"></div><div class="mock"></div><div class="mock"></div></div></section><section class="section"><h2 style="font-size:2rem;letter-spacing:-.05em;">Process</h2><div class="grid"><div class="panel"><strong>1. Frame the design question</strong><p>Started with a broader systems question instead of a fixed product brief.</p></div><div class="panel"><strong>2. Explore circular logic</strong><p>Mapped scenarios, product relationships, and possible service loops.</p></div><div class="panel"><strong>3. Shape a concept system</strong><p>Turned the exploration into a coherent concept with visible logic and touchpoints.</p></div><div class="panel"><strong>4. Present the vision</strong><p>Used the case to show perspective, range, and future-facing design thinking.</p></div></div></section></div></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Furniture Design — Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --blue: #2563eb;
+        --muted: #64748b;
+        --surface-subtle: #ffffff;
+        --line: #e2e8f0;
+        --radius-sm: 12px;
+        --radius-lg: 20px;
+        --text: #0f172a;
+        --bg: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+        line-height: 1.6;
+        padding: 3rem 1.5rem 5rem;
+      }
+
+      .wrap {
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .back {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #0071e3;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        transition: opacity 0.2s;
+      }
+
+      .back:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Header Section */
+      .hero {
+        margin-bottom: 4.5rem;
+      }
+
+      .category-tag {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+      }
+
+      h1.project-title {
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        margin-bottom: 1.25rem;
+        max-width: 18ch;
+      }
+
+      .project-desc {
+        font-size: 1.2rem;
+        color: var(--muted);
+        max-width: 60ch;
+        line-height: 1.55;
+        margin-bottom: 2.5rem;
+      }
+
+      /* Clean Meta Info Row */
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1.2fr;
+        gap: 1.5rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .meta-card strong {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text);
+        margin-bottom: 0.35rem;
+      }
+
+      .meta-card p {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      /* Section Common Styling */
+      .section {
+        margin-bottom: 5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        margin-bottom: 1.75rem;
+      }
+
+      .ui-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+      }
+
+      .problem-pivot-stack {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .insight-block {
+        padding: 1.25rem;
+        border-radius: var(--radius-sm);
+        background: var(--surface-subtle);
+        border: 1px solid var(--line);
+      }
+
+      .insight-block.alert-highlight {
+        border-left: 4px solid var(--blue);
+      }
+
+      .insight-tag {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+
+      .insight-block p {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .ui-media {
+        flex: 1.3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* MacBook Mockup Frame */
+      .macbook-frame {
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      .macbook-screen {
+        background: #0d0d0d;
+        border-radius: 12px 12px 0 0;
+        padding: 10px 10px 0 10px;
+        position: relative;
+        border: 2px solid #2d2d2d;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .macbook-camera {
+        width: 6px;
+        height: 6px;
+        background-color: #1a1a1a;
+        border-radius: 50%;
+        margin: 0 auto 6px auto;
+        border: 1px solid #333;
+      }
+
+      .macbook-viewport {
+        background: #ffffff;
+        border-radius: 4px 4px 0 0;
+        aspect-ratio: 16 / 10;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      }
+
+      .macbook-viewport::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .macbook-viewport::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+
+      .macbook-viewport img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .macbook-base {
+        height: 14px;
+        background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+        border-radius: 0 0 12px 12px;
+        position: relative;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .macbook-notch {
+        width: 60px;
+        height: 4px;
+        background: #94a3b8;
+        border-radius: 0 0 4px 4px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Waste Photo Gallery - Beside paragraph with larger flex proportions */
+      .waste-gallery-side {
+        flex: 1.45;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.85rem;
+        width: 100%;
+      }
+
+      .waste-img-card {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        background: #000;
+        border: 1px solid var(--line);
+        aspect-ratio: 3 / 4;
+        position: relative;
+      }
+
+      .waste-img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.4s ease, transform 0.4s ease;
+      }
+
+      .waste-img-card.zoom-detail img {
+        transform: scale(1.4);
+      }
+
+      .waste-img-card:hover img {
+        filter: grayscale(0%);
+      }
+
+      .waste-img-card.zoom-detail:hover img {
+        transform: scale(1.55);
+      }
+
+      /* How It Happens User Journey Workflow */
+      .workflow-container {
+        position: relative;
+        margin-top: 2rem;
+      }
+
+      .workflow-line {
+        position: absolute;
+        top: 32px;
+        left: 10%;
+        right: 10%;
+        border-top: 2px dotted #94a3b8;
+        z-index: 0;
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .workflow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        height: 100%;
+      }
+
+      .workflow-step-header {
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      .workflow-step-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .workflow-icon-wrapper {
+        background: var(--bg);
+        padding-right: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+        height: 56px;
+      }
+
+      .workflow-icon-wrapper svg {
+        width: 48px;
+        height: 48px;
+        stroke: #1e293b;
+        stroke-width: 1.6;
+      }
+
+      .workflow-step-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.45;
+        min-height: 4.2rem;
+        margin-bottom: 1.25rem;
+      }
+
+      /* Step Visual Containers - Portrait Aspect Ratio (3:4) */
+      .workflow-visual {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: var(--radius-sm);
+        background: #ffffff;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        margin-top: auto;
+        box-sizing: border-box;
+      }
+
+      /* Fill-card modifier removes padding for full bleed */
+      .workflow-visual.fill-card {
+        padding: 0;
+      }
+
+      .step-img-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step-img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .step-img-card img.fill-cover {
+        object-fit: cover;
+      }
+
+      /* Phone Frame for Step 2 adapted for portrait container */
+      .phone-frame {
+        height: 88%;
+        aspect-ratio: 9 / 18;
+        border: 4px solid #111827;
+        border-radius: 18px;
+        background: #111827;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .phone-notch {
+        width: 32px;
+        height: 3px;
+        background: #000;
+        border-radius: 2px;
+        position: absolute;
+        top: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+
+      /* Process Grid */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .process-card {
+        background: var(--surface-subtle);
+        border-radius: var(--radius-sm);
+        padding: 1.5rem;
+        border: 1px solid var(--line);
+      }
+
+      .process-card strong {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .process-card p {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* Mobile Responsive Layout */
+      @media (max-width: 880px) {
+        .ui-block {
+          flex-direction: column;
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .waste-gallery-side {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .workflow-line {
+          display: none;
+        }
+
+        .workflow-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .workflow-step {
+          border-left: 2px dotted #94a3b8;
+          padding-left: 1.25rem;
+        }
+
+        .workflow-step-desc {
+          min-height: auto;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="./product-portfolio-clear.html">← Back to homepage</a>
+
+      <!-- Hero Header Section -->
+      <header class="hero">
+        <div class="category-tag">Circular Economy & Product Design</div>
+        <h1 class="project-title">Circular Furniture Design</h1>
+        <p class="project-desc">
+          I led the development of a design ecosystem that transforms high-quality construction remnants into bespoke, adhesive-free furniture.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-card">
+            <strong>Role</strong>
+            <p>Design Lead / Circular Economy / Product & UI</p>
+          </div>
+          <div class="meta-card">
+            <strong>Date / Location</strong>
+            <p>2025–Current, Taipei</p>
+          </div>
+          <div class="meta-card">
+            <strong>Challenge</strong>
+            <p>Diverting urban construction remnants from landfills into modular, customizable furniture backed by a seamless digital ordering interface.</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- The Reality of Construction Waste Section -->
+      <section class="section">
+        <h2 class="section-title">The Reality of Construction Waste</h2>
+
+        <div class="ui-block">
+          <div class="problem-pivot-stack">
+            <div class="insight-block alert-highlight">
+              <div class="insight-tag">The Insight</div>
+              <p>While working in Interior Design, I noticed that huge amounts of high-quality marble and wood are thrown away every day.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">The Problem</div>
+              <p>These materials take a lot of energy and carbon to produce. However, they are often discarded simply because they are the "wrong size" for standard building projects.</p>
+            </div>
+            <div class="insight-block">
+              <div class="insight-tag">The Goal</div>
+              <p>My goal is to give these valuable materials a second life. I am designing a digital marketplace where they can be saved and reused. This system connects construction waste with designers who can turn small pieces into new products.</p>
+            </div>
+          </div>
+
+          <div class="waste-gallery-side">
+            <div class="waste-img-card zoom-detail">
+              <img 
+                src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a9cf934a1d17a4868160d7ece2adde6a841c79c9/assets/recraft-waste01.JPG" 
+                alt="Construction waste material detail 01" 
+              />
+            </div>
+            <div class="waste-img-card zoom-detail">
+              <img 
+                src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a9cf934a1d17a4868160d7ece2adde6a841c79c9/assets/recraft-waste02.JPG" 
+                alt="Construction waste material detail 02" 
+              />
+            </div>
+            <div class="waste-img-card">
+              <img 
+                src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a9cf934a1d17a4868160d7ece2adde6a841c79c9/assets/recraft-waste03.png" 
+                alt="Construction waste site context 03" 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Digital Platform & Ecosystem Overview -->
+      <section class="section">
+        <h2 class="section-title">The Digital Platform</h2>
+
+        <div class="ui-showcase-container">
+          <div class="ui-block">
+            <div class="problem-pivot-stack">
+              <div class="insight-block alert-highlight">
+                <div class="insight-tag">Material Traceability</div>
+                <p>Data-driven insights on origin and carbon footprint.</p>
+              </div>
+              <div class="insight-block">
+                <div class="insight-tag">Commission Inquiry</div>
+                <p>Direct channel for architects and designers to source and customize.</p>
+              </div>
+              <div class="insight-block">
+                <div class="insight-tag">Parametric UI Configurator</div>
+                <p>Empowers clients to design bespoke spatial furniture pieces tailored to exact architectural dimensions in real time.</p>
+              </div>
+            </div>
+
+            <div class="ui-media">
+              <div class="macbook-frame">
+                <div class="macbook-screen">
+                  <div class="macbook-camera"></div>
+                  <div class="macbook-viewport">
+                    <img 
+                      src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/38f00e49cee62bb1a75de2a63e1e8be956ba68b6/assets/recraft-home.jpg" 
+                      alt="Circular Furniture Configurator Platform" 
+                    />
+                  </div>
+                </div>
+                <div class="macbook-base">
+                  <div class="macbook-notch"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Happens Section (Portrait Photos) -->
+      <section class="section">
+        <h2 class="section-title">How it happens</h2>
+
+        <div class="workflow-container">
+          <div class="workflow-line"></div>
+          
+          <div class="workflow-grid">
+            <!-- Step 1: Material Provided (Portrait full-bleed) -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">Step 1: material provided</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="38" width="18" height="18" rx="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="30" y="38" width="24" height="18" rx="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="22" y="24" width="22" height="12" rx="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 24V10M20 24V8M26 22V14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                Customers provide high-quality materials left over from their own projects.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    class="fill-cover"
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a2403802e94c4a3a9c85c44c3dc3650e74037a91/assets/recraft-waste03.png" 
+                    alt="Leftover material example" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Re:craft platform (Portrait frame) -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">Step 2: Re:craft platform</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="12" width="34" height="24" rx="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 36v8M30 36v8M12 44h20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="32" y="22" width="16" height="22" rx="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="42" y="28" width="12" height="16" rx="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                The digital platform handles the request and tracks the material's details.
+              </p>
+              <div class="workflow-visual">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <img 
+                    class="phone-screen" 
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/c4bad56759cd940c118f66dc36276665600359a8/assets/recraft-submit.PNG" 
+                    alt="Submit commission platform interface" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Design & Craft (Portrait card) -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">Step 3: design &amp; craft</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 28L32 10l20 18v24H12V28z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22 42l18-18M20 26l18 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="21" cy="25" r="1.5" fill="currentColor"/>
+                  <circle cx="41" cy="45" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                We design a custom piece that fits the exact size and shape of the customer's material.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    class="fill-cover"
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/a2403802e94c4a3a9c85c44c3dc3650e74037a91/assets/recraft-example.png" 
+                    alt="Custom joinery and layout design drawing" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: New Life (Portrait full-bleed) -->
+            <div class="workflow-step">
+              <div class="workflow-step-header">
+                <h3 class="workflow-step-title">Step 4: new life</h3>
+              </div>
+              <div class="workflow-icon-wrapper">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="14" y="10" width="36" height="38" rx="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="14" y1="28" x2="50" y2="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="32" cy="19" r="2" fill="currentColor"/>
+                  <circle cx="32" cy="38" r="2" fill="currentColor"/>
+                  <path d="M19 48l-3 8M45 48l3 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="workflow-step-desc">
+                We return the material as a bespoke piece of luxury furniture, creating zero waste.
+              </p>
+              <div class="workflow-visual fill-card">
+                <div class="step-img-card">
+                  <img 
+                    class="fill-cover"
+                    src="https://raw.githubusercontent.com/yiyunwang2356/Product-design/898abd95e385b829d7da68909cb2bff05463bdee/assets/recraft-example-product.jpg" 
+                    alt="Finished luxury wooden furniture piece" 
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design & Implementation Process -->
+      <section class="section">
+        <h2 class="section-title">Design Process</h2>
+        <div class="process-grid">
+          <div class="process-card">
+            <strong>1. Remnant Audit &amp; Stream Mapping</strong>
+            <p>Identified high-grade construction waste materials in Taipei and established structured taxonomy for material size, durability, and texture.</p>
+          </div>
+          <div class="process-card">
+            <strong>2. Structural Joinery Design</strong>
+            <p>Developed standardized, tool-free mechanical connectors to completely replace chemical adhesives and hardware fasteners.</p>
+          </div>
+          <div class="process-card">
+            <strong>3. Configurator UI / UX Flow</strong>
+            <p>Designed a clean interactive web prototype enabling users to easily visualize material origins, customize dimensions, and preview configurations.</p>
+          </div>
+          <div class="process-card">
+            <strong>4. Scalable Supply Chain Integration</strong>
+            <p>Created an end-to-end framework linking local reclaimed material suppliers directly to modern CNC fabrication pipelines.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
